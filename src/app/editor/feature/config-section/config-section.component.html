@@ -1,22 +1,31 @@
-<mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="tree">
-  <!-- This is the tree node template for leaf nodes -->
-  <!-- There is inline padding applied to this node using styles.
-      This padding value depends on the mat-icon-button width. -->
-  <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
-    {{ node.name }}
-  </mat-tree-node>
-  <!-- This is the tree node template for expandable nodes -->
-  <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
-    <div class="mat-tree-node" [class.expanded]="treeControl.isExpanded(node)">
-      <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
-        <mat-icon class="mat-icon-rtl-mirror">
-          {{ treeControl.isExpanded(node) ? "expand_more" : "chevron_right" }}
-        </mat-icon>
-      </button>
-      {{ node.name }}
+<div [ngClass]="nested ? 'pl-6 rounded-lg border-l-2 border-dark-800/50 my-4' : ''">
+  <ng-container *ngIf="getEntries(configSection) as entries">
+    <div *ngFor="let entry of entries">
+      <!-- Single Field -->
+      <app-field-container
+        *ngIf="!isFieldExpandable(entry[1]); else expand"
+        [key]="entry[0]"
+        [icon]="getFieldIcon(entry[1])"
+      >
+        {{ entry[1] }}
+      </app-field-container>
+      <!-- Multi Field -->
+      <ng-template #expand>
+        <app-section-header
+          [key]="entry[0]"
+          [expanded]="isExpanded(entry[0])"
+          (iconClick)="toggleSectionExpansion($event)"
+          class="block my-4"
+        >
+          {{ entry[0] }}
+        </app-section-header>
+        <app-config-section
+          *ngIf="isExpanded(entry[0])"
+          [key]="entry[0]"
+          [configSection]="entry[1]"
+          [nested]="true"
+        ></app-config-section>
+      </ng-template>
     </div>
-    <div [class.hidden]="!treeControl.isExpanded(node)" role="group">
-      <ng-container matTreeNodeOutlet></ng-container>
-    </div>
-  </mat-nested-tree-node>
-</mat-tree>
+  </ng-container>
+</div>

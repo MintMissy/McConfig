@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { HexColorCodePipe } from './pipe/minecraft-text/hex-color-code.pipe';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -16,6 +17,7 @@ import { MinecraftTextPreviewComponent } from './ui/minecraft-text-preview/minec
 import { MiniMessagePipe } from './pipe/minecraft-text/mini-message.pipe';
 import { NavbarComponent } from './ui/navbar/navbar.component';
 import { NgModule } from '@angular/core';
+
 @NgModule({
   declarations: [
     NavbarComponent,
@@ -42,6 +44,7 @@ import { NgModule } from '@angular/core';
     BreadcrumbComponent,
     MatIconModule,
     MatButtonModule,
+    MatDividerModule,
   ],
   imports: [
     CommonModule,
@@ -51,6 +54,7 @@ import { NgModule } from '@angular/core';
     FormsModule,
     MatToolbarModule,
     MatButtonModule,
+    MatDividerModule,
   ],
 })
 export class SharedModule {}

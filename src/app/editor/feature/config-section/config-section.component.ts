@@ -1,36 +1,23 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
-import { MatTreeNestedDataSource } from '@angular/material/tree';
-import { NestedTreeControl } from '@angular/cdk/tree';
-
-/**
- * Food data with nested structure.
- * Each node has a name and an optional list of children.
- */
-interface FoodNode {
-  name: string;
-  children?: FoodNode[];
-}
-
-const TREE_DATA: FoodNode[] = [
-  {
-    name: 'Fruit',
-    children: [{ name: 'Apple' }, { name: 'Banana' }, { name: 'Fruit loops' }],
+const JSON_DATA = {
+  deployment: {
+    test: 'A',
+    files: ['fileA', 'FileB'],
   },
-  {
-    name: 'Vegetables',
-    children: [
-      {
-        name: 'Green',
-        children: [{ name: 'Broccoli' }, { name: 'Brussels sprouts' }],
+  x: 'a',
+  id: 'v1',
+  handlers: [
+    {
+      urlRegex: '/.*',
+      script: {
+        scriptPath: 'example-python-app.py',
       },
-      {
-        name: 'Orange',
-        children: [{ name: 'Pumpkins' }, { name: 'Carrots' }],
-      },
-    ],
-  },
-];
+    },
+  ],
+  runtime: 'python27',
+  threadsafe: true,
+};
 
 @Component({
   selector: 'app-config-section',
@@ -39,12 +26,44 @@ const TREE_DATA: FoodNode[] = [
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ConfigSectionComponent {
-  treeControl = new NestedTreeControl<FoodNode>((node) => node.children);
-  dataSource = new MatTreeNestedDataSource<FoodNode>();
+  @Input() key = '';
+  @Input() configSection: any = JSON_DATA;
+  @Input() nested = false;
 
-  constructor() {
-    this.dataSource.data = TREE_DATA;
+  @Output() expand = new EventEmitter<string>();
+
+  expanded: Record<string, boolean> = {};
+
+  getFieldIcon(fieldContent: any) {
+    if (typeof fieldContent === 'string') {
+      return 'edit';
+    } else if (typeof fieldContent === 'boolean') {
+      return 'check_box';
+    } else {
+      return '123';
+    }
   }
 
-  hasChild = (_: number, node: FoodNode) => !!node.children && node.children.length > 0;
+  getEntries(value: any): any[] {
+    if (this.isFieldExpandable(value)) {
+      return Object.entries(value);
+    }
+    return [value];
+  }
+
+  toggleSectionExpansion(key: string) {
+    console.log(key);
+    console.log(this.expanded);
+
+    this.expanded = { ...this.expanded, [key]: !this.expanded[key] };
+    console.log(this.expanded);
+  }
+
+  isExpanded(sectionKey: any) {
+    return this.expanded[sectionKey];
+  }
+
+  isFieldExpandable(value: any): boolean {
+    return typeof value === 'object';
+  }
 }
