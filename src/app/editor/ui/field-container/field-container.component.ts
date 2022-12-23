@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-field-container',
   templateUrl: './field-container.component.html',
   styleUrls: ['./field-container.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FieldContainerComponent {
   @Input() icon!: string;

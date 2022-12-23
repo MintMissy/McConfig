@@ -1,15 +1,16 @@
 <div [ngClass]="nested ? 'pl-6 rounded-lg border-l-2 border-dark-800/50 my-4' : ''">
   <ng-container *ngIf="getEntries(configSection) as entries">
     <div *ngFor="let entry of entries">
-      <!-- Single Field -->
+      <!-- String, Number, Boolean Field -->
       <app-field-container
         *ngIf="!isFieldExpandable(entry[1]); else expand"
         [key]="entry[0]"
         [icon]="getFieldIcon(entry[1])"
       >
+        <!-- <app-minecraft-material-autocomplete *ngIf="entry[0] === 'material'"></app-minecraft-material-autocomplete> -->
         {{ entry[1] }}
       </app-field-container>
-      <!-- Multi Field -->
+      <!-- Object / Array Field -->
       <ng-template #expand>
         <app-section-header
           [key]="entry[0]"

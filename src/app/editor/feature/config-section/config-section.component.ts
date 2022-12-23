@@ -16,6 +16,8 @@ const JSON_DATA = {
     },
   ],
   runtime: 'python27',
+  material: 'dirt',
+  versionNumber: 10,
   threadsafe: true,
 };
 
@@ -36,9 +38,9 @@ export class ConfigSectionComponent {
 
   getFieldIcon(fieldContent: any) {
     if (typeof fieldContent === 'string') {
-      return 'edit';
+      return 'format_bold';
     } else if (typeof fieldContent === 'boolean') {
-      return 'check_box';
+      return 'done';
     } else {
       return '123';
     }

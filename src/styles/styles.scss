@@ -49,3 +49,8 @@ body {
   font-weight: normal;
   font-style: normal;
 }
+
+.input {
+  @apply px-2 py-2 text-black;
+  color: black !important;
+}
