@@ -1,10 +1,9 @@
-<mat-form-field class="example-full-width" appearance="fill" class="w-full">
-  <mat-label>Material</mat-label>
+<div class="flex gap-4 h-8">
   <input
+    class="w-80 h-full px-2 py-2 text-black"
     type="text"
     placeholder=""
     aria-label="Material"
-    matInput
     [matAutocomplete]="auto"
     [ngModel]="inputContent"
     (ngModelChange)="onChange($event)"
@@ -13,21 +12,21 @@
     [src]="'assets/minecraft/materials/' + (input | async | lowercase) + '.png'"
     alt=""
     aria-hidden="true"
-    class="w-8 h-8 ml-3 mr-2 block"
+    class="w-8 h-8 ml-2 block"
     matIconPrefix
     *ngIf="canShowIcon()"
   />
   <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
     <mat-option *ngFor="let material of autocomplete$ | async" [value]="material">
-      <div class="flex align-middle gap-4">
+      <div class="flex align-middle gap-4 h-6">
         <img
           [src]="'assets/minecraft/materials/' + (material | lowercase) + '.png'"
           alt=""
           aria-hidden="true"
-          class="w-8 h-8"
+          class="w-6 h-full"
         />
         <p>{{ material }}</p>
       </div>
     </mat-option>
   </mat-autocomplete>
-</mat-form-field>
+</div>

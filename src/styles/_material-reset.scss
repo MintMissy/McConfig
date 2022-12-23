@@ -1,0 +1,19 @@
+.mat-tree {
+  @apply bg-transparent;
+}
+
+.mat-tree-node {
+  @apply bg-dark-800;
+}
+
+.mat-tree-node:first-child {
+  @apply mt-4;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.mat-tree-node:last-child {
+  @apply mb-4;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
