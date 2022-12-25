@@ -1,1 +1,34 @@
-<p>config-section-nested-node works!</p>
+<!-- entry[0] = key; entry[1] = value  -->
+<div *ngFor="let entry of getEntries(configEntries)" [ngClass]="root ? '' : 'pl-6' ">
+  <!-- Field (String, Number, Boolean) -->
+  <app-config-section-node
+    *ngIf="!isExpandable(entry[1]); else nestedNode"
+    [path]="combinePath(entry[0])"
+    [value]="entry[1]"
+    [valueType]="getFieldType(entry[1])"
+  >
+    <!-- <app-minecraft-material-autocomplete *ngIf="entry[0] === 'material'"></app-minecraft-material-autocomplete> -->
+    {{ entry[1] }}
+  </app-config-section-node>
+
+  <!-- Nested Node (Object, Array) -->
+  <ng-template #nestedNode>
+    <app-section-header
+      [path]="combinePath(entry[0])"
+      [expanded]="true"
+      (expandToggle)="expandToggle.emit($event)"
+      class="block my-4"
+    >
+      {{ entry[0] }}
+    </app-section-header>
+    <!-- TODO is expanded -->
+    <app-config-section-nested-node
+      [path]="combinePath(entry[0])"
+      [configEntries]="entry[1]"
+      [expanded]="true"
+      (expandToggle)="expandToggle.emit($event)"
+      (fieldValueChange)="fieldValueChange.emit($event)"
+    >
+    </app-config-section-nested-node>
+  </ng-template>
+</div>

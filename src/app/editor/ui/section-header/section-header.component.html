@@ -1,6 +1,6 @@
 <div class="wrapper flex py-2 bg-dark-800 rounded-sm">
-  <mat-icon (click)="iconClick.emit(key)" class="icon cursor-pointer" [style]="{ fontSize: '1.5rem' }">
+  <mat-icon (click)="expandToggle.emit({ path: path })" class="icon cursor-pointer" [style]="{ fontSize: '1.5rem' }">
     {{ expanded ? "expand_more" : "chevron_right" }}
   </mat-icon>
-  <h3 class="font-medium">{{ key }}</h3>
+  <h3 class="font-medium">{{ path }}</h3>
 </div>

@@ -7,8 +7,8 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SectionHeaderComponent {
-  @Input() key = 'Key';
+  @Input() path = 'path';
   @Input() expanded = false;
 
-  @Output() iconClick = new EventEmitter<string>();
+  @Output() expandToggle = new EventEmitter<{ path: string }>();
 }

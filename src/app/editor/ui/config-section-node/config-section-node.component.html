@@ -1,10 +1,10 @@
-<div class="wrapper flex pl-4 py-2 bg-dark-800 rounded-sm">
-  <div>{{ key }}</div>
+<div class="wrapper flex mt-4 px-4 py-2 bg-dark-800 rounded-sm">
+  <div>{{ path }}</div>
   <span class="mx-4 w-[1px] bg-dark-600"></span>
   <div>
     <ng-content></ng-content>
   </div>
   <mat-icon class="icon ml-auto" [style]="{ fontSize: iconSize }">
-    {{ icon }}
+    {{ getFieldIcon() }}
   </mat-icon>
 </div>
