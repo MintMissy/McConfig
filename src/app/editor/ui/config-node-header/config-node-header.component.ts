@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-section-header',
-  templateUrl: './section-header.component.html',
-  styleUrls: ['./section-header.component.scss'],
+  selector: 'app-config-node-header',
+  templateUrl: './config-node-header.component.html',
+  styleUrls: ['./config-node-header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SectionHeaderComponent {
+export class ConfigNodeHeaderComponent {
   @Input() path = 'path';
   @Input() expanded = false;
 

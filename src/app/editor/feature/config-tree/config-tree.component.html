@@ -1,11 +1,10 @@
 <!-- <app-minecraft-material-autocomplete *ngIf="entry[0] === 'material'"></app-minecraft-material-autocomplete> -->
-<pre>{{ (configSection$ | async) | json }}</pre>
-<app-config-section-nested-node
+<app-config-nested-node
   [path]="''"
   [configEntries]="configSection$ | async"
-  [expanded]="true"
+  [expandedPaths]="expandedPaths$ | async"
   [root]="true"
   (expandToggle)="onSectionExpand($event)"
   (fieldValueChange)="onFieldValueChange($event)"
 >
-</app-config-section-nested-node>
+</app-config-nested-node>

@@ -1,10 +1,10 @@
 import { RouterModule, Routes } from '@angular/router';
 
 import { CommonModule } from '@angular/common';
-import { EditorContainerComponent } from './feature/editor-container/editor-container.component';
+import { EditorComponent } from './feature/editor/editor.component';
 import { NgModule } from '@angular/core';
 
-const routes: Routes = [{ path: '', component: EditorContainerComponent }];
+const routes: Routes = [{ path: '', component: EditorComponent }];
 
 @NgModule({
   declarations: [],

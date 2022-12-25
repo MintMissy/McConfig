@@ -1,0 +1,7 @@
+<div class="bg-primary-600 px-4 py-3 flex justify-between items-center">
+    <h2 class="font-medium text-base">{{fileName}}</h2>
+    <div class="flex gap-3">
+      <app-icon-button text="Remove" icon="delete" (clickEvent)="delete.emit()"></app-icon-button>
+      <app-icon-button text="Save" icon="save" (clickEvent)="save.emit"></app-icon-button>
+    </div>
+  </div>

@@ -1,23 +1,25 @@
 import { CommonModule } from '@angular/common';
 import { ConfigFieldComponent } from './ui/config-field/config-field.component';
-import { ConfigSectionNestedNodeComponent } from './feature/config-section-nested-node/config-section-nested-node.component';
-import { ConfigSectionNodeComponent } from './ui/config-section-node/config-section-node.component';
-import { ConfigSectionTreeComponent } from './feature/config-section-tree/config-section-tree.component';
-import { EditorContainerComponent } from './feature/editor-container/editor-container.component';
+import { ConfigNestedNodeComponent } from './ui/config-nested-node/config-nested-node.component';
+import { ConfigNodeComponent } from './ui/config-node/config-node.component';
+import { ConfigTreeComponent } from './feature/config-tree/config-tree.component';
+import { EditorComponent } from './feature/editor/editor.component';
+import { EditorHeaderComponent } from './ui/editor-header/editor-header.component';
 import { EditorRoutingModule } from './editor-routing.module';
 import { MatTreeModule } from '@angular/material/tree';
 import { NgModule } from '@angular/core';
-import { SectionHeaderComponent } from './ui/section-header/section-header.component';
+import { ConfigNodeHeaderComponent } from './ui/config-node-header/config-node-header.component';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
-    EditorContainerComponent,
+    EditorComponent,
     ConfigFieldComponent,
-    SectionHeaderComponent,
-    ConfigSectionTreeComponent,
-    ConfigSectionNodeComponent,
-    ConfigSectionNestedNodeComponent,
+    ConfigNodeHeaderComponent,
+    ConfigTreeComponent,
+    ConfigNodeComponent,
+    ConfigNestedNodeComponent,
+    EditorHeaderComponent,
   ],
   imports: [CommonModule, EditorRoutingModule, SharedModule, MatTreeModule, SharedModule],
 })

@@ -1,14 +1,14 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-config-section-nested-node',
-  templateUrl: './config-section-nested-node.component.html',
-  styleUrls: ['./config-section-nested-node.component.scss']
+  selector: 'app-config-nested-node',
+  templateUrl: './config-nested-node.component.html',
+  styleUrls: ['./config-nested-node.component.scss']
 })
-export class ConfigSectionNestedNodeComponent {
+export class ConfigNestedNodeComponent {
   @Input() path = '';
   @Input() configEntries: any[][] = [];
-  @Input() expanded = false;
+  @Input() expandedPaths: {[path: string]: boolean} | null = {};
   @Input() root = false;
 
   @Output() expandToggle = new EventEmitter<{path: string}>();

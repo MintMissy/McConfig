@@ -1,16 +1,16 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-config-section-node',
-  templateUrl: './config-section-node.component.html',
-  styleUrls: ['./config-section-node.component.scss'],
+  selector: 'app-config-node',
+  templateUrl: './config-node.component.html',
+  styleUrls: ['./config-node.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ConfigSectionNodeComponent {
+export class ConfigNodeComponent {
   @Input() path = 'path';
   @Input() value = '';
   @Input() valueType!: "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function";
-  @Input() iconSize = '1.5rem';
+  @Input() iconSize = '1.25rem';
 
   getFieldIcon(){
     if (this.valueType === 'string') {

@@ -1,0 +1,6 @@
+<div class="flex py-2 my-1 h-13 leading-5 bg-dark-700 hover:bg-dark-600 rounded-sm cursor-pointer rounded-md" (click)="expandToggle.emit({ path: path })">
+  <mat-icon class="mx-2" [style]="{ fontSize: '1.25rem', height: '1.25rem' }">
+    {{ expanded ? "expand_more" : "chevron_right" }}
+  </mat-icon>
+  <h3 class="font-medium">{{ path | lastPathKey }}</h3>
+</div>

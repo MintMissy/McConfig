@@ -5,6 +5,7 @@ import { FooterComponent } from './ui/footer/footer.component';
 import { FormatConfigKeyPipe } from './pipe/format-config-key.pipe';
 import { FormsModule } from '@angular/forms';
 import { HexColorCodePipe } from './pipe/minecraft-text/hex-color-code/hex-color-code.pipe';
+import { IconButtonComponent } from './ui/icon-button/icon-button.component';
 import { LastPathKeyPipe } from './pipe/last-path-key.pipe';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
@@ -32,6 +33,7 @@ import { NgModule } from '@angular/core';
     FormatConfigKeyPipe,
     BreadcrumbComponent,
     LastPathKeyPipe,
+    IconButtonComponent,
   ],
   exports: [
     NavbarComponent,
@@ -47,7 +49,9 @@ import { NgModule } from '@angular/core';
     MatIconModule,
     MatButtonModule,
     MatDividerModule,
-    LastPathKeyPipe
+    LastPathKeyPipe,
+    IconButtonComponent,
+
   ],
   imports: [
     CommonModule,

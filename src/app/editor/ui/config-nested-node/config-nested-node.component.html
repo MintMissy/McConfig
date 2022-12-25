@@ -1,0 +1,35 @@
+<ng-container *ngIf="root || (expandedPaths && expandedPaths[path])">
+  <!-- entry[0] = key; entry[1] = value  -->
+  <div *ngFor="let entry of getEntries(configEntries)" [ngClass]="root ? '' : 'pl-6 border-l-2 border-dark-700/50'">
+    <!-- Field (String, Number, Boolean) -->
+    <app-config-node
+      *ngIf="!isExpandable(entry[1]); else nestedNode"
+      [path]="combinePath(entry[0])"
+      [value]="entry[1]"
+      [valueType]="getFieldType(entry[1])"
+    >
+      <!-- <app-minecraft-material-autocomplete *ngIf="entry[0] === 'material'"></app-minecraft-material-autocomplete> -->
+      {{ entry[1] }}
+    </app-config-node>
+    <!-- Nested Node (Object, Array) -->
+    <ng-template #nestedNode>
+      <div>
+        <app-config-node-header
+          [path]="combinePath(entry[0])"
+          [expanded]="!!(expandedPaths && expandedPaths[combinePath(entry[0])])"
+          (expandToggle)="expandToggle.emit($event)"
+        >
+          {{ entry[0] }}
+        </app-config-node-header>
+        <app-config-nested-node
+          [path]="combinePath(entry[0])"
+          [configEntries]="entry[1]"
+          [expandedPaths]="expandedPaths"
+          (expandToggle)="expandToggle.emit($event)"
+          (fieldValueChange)="fieldValueChange.emit($event)"
+        >
+        </app-config-nested-node>
+      </div>
+    </ng-template>
+  </div>
+</ng-container>

@@ -3,4 +3,10 @@
 <app-minecraft-material-autocomplete></app-minecraft-material-autocomplete>
 
 <mat-divider class="pb-4"></mat-divider>
-<app-config-section-tree></app-config-section-tree>
+
+<div class="shadow-lg rounded-md overflow-hidden">
+  <app-editor-header [fileName]="fileName" (save)="onSave()" (delete)="onDelete()"></app-editor-header>
+  <div class="bg-dark-800 p-3">
+    <app-config-tree></app-config-tree>
+  </div>
+</div>
