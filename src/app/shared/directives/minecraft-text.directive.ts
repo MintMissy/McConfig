@@ -1,9 +1,9 @@
 import { Directive, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Subscription, interval } from 'rxjs';
 
-import { ColorCodePipe } from '../pipe/minecraft-text/color-code.pipe';
-import { HexColorCodePipe } from '../pipe/minecraft-text/hex-color-code.pipe';
-import { MiniMessagePipe } from '../pipe/minecraft-text/mini-message.pipe';
+import { ColorCodePipe } from '../pipe/minecraft-text/color-code/color-code.pipe';
+import { HexColorCodePipe } from '../pipe/minecraft-text/hex-color-code/hex-color-code.pipe';
+import { MiniMessagePipe } from '../pipe/minecraft-text/mini-message/mini-message.pipe';
 import { obfuscatedText } from '../utility/obfuscated-text-utility';
 
 export interface MinecraftTextConfig {

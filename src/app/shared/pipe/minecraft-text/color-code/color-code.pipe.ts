@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { MinecraftTextPipe } from './minecraft-text.pipe';
+import { MinecraftTextPipe } from '../minecraft-text.pipe';
 
 const colorCodesColorMap: Map<string, string> = new Map([
   ['0', '#000000'],

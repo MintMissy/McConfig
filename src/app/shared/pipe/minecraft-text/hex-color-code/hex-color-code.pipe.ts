@@ -1,7 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { isHexColor } from '../../utility/color-utility';
-
-import { ColorCodePipe } from './color-code.pipe';
+import { isHexColor } from 'src/app/shared/utility/color-utility';
+import { ColorCodePipe } from '../color-code/color-code.pipe';
 
 @Pipe({
   name: 'hexColorCode',
