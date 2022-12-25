@@ -4,12 +4,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Material } from '../../enums/material.enum';
 
 @Component({
-  selector: 'app-minecraft-material-autocomplete',
-  templateUrl: './minecraft-material-autocomplete.component.html',
-  styleUrls: ['./minecraft-material-autocomplete.component.scss'],
+  selector: 'app-material-input',
+  templateUrl: './material-input.component.html',
+  styleUrls: ['./material-input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MinecraftMaterialAutocompleteComponent {
+export class MaterialInputComponent {
   input = new BehaviorSubject<string>('');
   inputContent = '';
 

@@ -13,7 +13,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MinecraftMaterialAutocompleteComponent } from './ui/minecraft-material-autocomplete/minecraft-material-autocomplete.component';
+import { MaterialInputComponent } from './ui/material-input/material-input.component';
 import { MinecraftTextDirective } from './directives/minecraft-text.directive';
 import { MinecraftTextPreviewComponent } from './ui/minecraft-text-preview/minecraft-text-preview.component';
 import { MiniMessagePipe } from './pipe/minecraft-text/mini-message/mini-message.pipe';
@@ -29,7 +29,7 @@ import { NgModule } from '@angular/core';
     MiniMessagePipe,
     ColorCodePipe,
     HexColorCodePipe,
-    MinecraftMaterialAutocompleteComponent,
+    MaterialInputComponent,
     FormatConfigKeyPipe,
     BreadcrumbComponent,
     LastPathKeyPipe,
@@ -43,7 +43,7 @@ import { NgModule } from '@angular/core';
     MiniMessagePipe,
     ColorCodePipe,
     HexColorCodePipe,
-    MinecraftMaterialAutocompleteComponent,
+    MaterialInputComponent,
     FormatConfigKeyPipe,
     BreadcrumbComponent,
     MatIconModule,

@@ -51,6 +51,9 @@ body {
 }
 
 .input {
-  @apply px-2 py-2 text-black;
-  color: black !important;
+  @apply px-2 py-1 text-white rounded-md bg-dark-900/50 focus:outline-none focus:ring-1 focus:ring-dark-900 hover:bg-dark-900/75 focus:bg-dark-900;
+}
+
+.input--transparent {
+  @apply bg-transparent hover:bg-dark-900/50;
 }

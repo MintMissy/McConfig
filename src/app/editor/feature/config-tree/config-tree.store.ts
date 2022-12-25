@@ -1,13 +1,13 @@
 import { ComponentStore } from '@ngrx/component-store';
 import { Injectable } from '@angular/core';
 
-export interface ConfigSectionTreeState {
+export interface ConfigTreeState {
   config: any;
   expandedPaths: { [path: string]: boolean };
 }
 
 @Injectable()
-export class ConfigSectionTreeStore extends ComponentStore<ConfigSectionTreeState> {
+export class ConfigTreeStore extends ComponentStore<ConfigTreeState> {
   constructor() {
     super({ config: {}, expandedPaths: {} });
   }

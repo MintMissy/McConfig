@@ -7,10 +7,7 @@
       [path]="combinePath(entry[0])"
       [value]="entry[1]"
       [valueType]="getFieldType(entry[1])"
-    >
-      <!-- <app-minecraft-material-autocomplete *ngIf="entry[0] === 'material'"></app-minecraft-material-autocomplete> -->
-      {{ entry[1] }}
-    </app-config-node>
+    ></app-config-node>
     <!-- Nested Node (Object, Array) -->
     <ng-template #nestedNode>
       <div>
@@ -18,17 +15,14 @@
           [path]="combinePath(entry[0])"
           [expanded]="!!(expandedPaths && expandedPaths[combinePath(entry[0])])"
           (expandToggle)="expandToggle.emit($event)"
-        >
-          {{ entry[0] }}
-        </app-config-node-header>
+        ></app-config-node-header>
         <app-config-nested-node
           [path]="combinePath(entry[0])"
           [configEntries]="entry[1]"
           [expandedPaths]="expandedPaths"
           (expandToggle)="expandToggle.emit($event)"
           (fieldValueChange)="fieldValueChange.emit($event)"
-        >
-        </app-config-nested-node>
+        ></app-config-nested-node>
       </div>
     </ng-template>
   </div>

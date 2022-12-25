@@ -5,9 +5,9 @@
     placeholder=""
     aria-label="Material"
     [matAutocomplete]="auto"
-    [ngModel]="inputContent"
-    (ngModelChange)="onChange($event)"
   />
+  <!-- [ngModel]="inputContent"
+    (ngModelChange)="onChange($event)" -->
   <img
     [src]="'assets/minecraft/materials/' + (input | async | lowercase) + '.png'"
     alt=""
@@ -30,3 +30,4 @@
     </mat-option>
   </mat-autocomplete>
 </div>
+<input>

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-import { ConfigSectionTreeStore } from './config-section-tree.store';
+import { ConfigTreeStore } from './config-tree.store';
 
 const JSON_DATA = {
   deployment: {
@@ -28,7 +28,7 @@ const JSON_DATA = {
   templateUrl: './config-tree.component.html',
   styleUrls: ['./config-tree.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [ConfigSectionTreeStore],
+  providers: [ConfigTreeStore],
 })
 export class ConfigTreeComponent implements OnInit {
   @Input() fileName = '';
@@ -41,7 +41,7 @@ export class ConfigTreeComponent implements OnInit {
   configSection$ = this.componentStore.config$;
   expandedPaths$ = this.componentStore.expandedPaths$;
 
-  constructor(private readonly componentStore: ConfigSectionTreeStore) {}
+  constructor(private readonly componentStore: ConfigTreeStore) {}
 
   ngOnInit(): void {
     this.componentStore.setState({ config: JSON_DATA, expandedPaths: {} });
