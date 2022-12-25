@@ -1,20 +1,21 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-config-nested-node',
   templateUrl: './config-nested-node.component.html',
-  styleUrls: ['./config-nested-node.component.scss']
+  styleUrls: ['./config-nested-node.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ConfigNestedNodeComponent {
   @Input() path = '';
   @Input() configEntries: any[][] = [];
-  @Input() expandedPaths: {[path: string]: boolean} | null = {};
+  @Input() expandedPaths: { [path: string]: boolean } | null = {};
   @Input() root = false;
 
-  @Output() expandToggle = new EventEmitter<{path: string}>();
-  @Output() fieldValueChange = new EventEmitter<{path: string, value: any}>();
+  @Output() expandToggle = new EventEmitter<{ path: string }>();
+  @Output() fieldValueChange = new EventEmitter<{ path: string; value: any }>();
 
-  combinePath(key: string):string{
+  combinePath(key: string): string {
     if (this.root) {
       return key;
     }
@@ -25,7 +26,7 @@ export class ConfigNestedNodeComponent {
     return typeof value === 'object';
   }
 
-  getFieldType(value: any){
+  getFieldType(value: any) {
     return typeof value;
   }
 

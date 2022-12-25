@@ -4,12 +4,12 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
   selector: 'app-icon-button',
   templateUrl: './icon-button.component.html',
   styleUrls: ['./icon-button.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IconButtonComponent {
   @Input() icon!: string;
-  @Input() text!: string
+  @Input() text!: string;
   @Input() classes = '';
-  
+
   @Output() clickEvent = new EventEmitter<void>();
 }

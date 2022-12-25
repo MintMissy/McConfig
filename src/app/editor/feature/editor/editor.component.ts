@@ -16,7 +16,7 @@ export class EditorComponent {
   onDelete() {
     throw new Error('Method not implemented.');
   }
-  
+
   onSave() {
     throw new Error('Method not implemented.');
   }

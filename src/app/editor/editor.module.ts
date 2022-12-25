@@ -7,6 +7,7 @@ import { ConfigTreeComponent } from './feature/config-tree/config-tree.component
 import { EditorComponent } from './feature/editor/editor.component';
 import { EditorHeaderComponent } from './ui/editor-header/editor-header.component';
 import { EditorRoutingModule } from './editor-routing.module';
+import { FormsModule } from '@angular/forms';
 import { MatTreeModule } from '@angular/material/tree';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
@@ -21,6 +22,6 @@ import { SharedModule } from '../shared/shared.module';
     ConfigNestedNodeComponent,
     EditorHeaderComponent,
   ],
-  imports: [CommonModule, EditorRoutingModule, SharedModule, MatTreeModule, SharedModule],
+  imports: [CommonModule, EditorRoutingModule, SharedModule, MatTreeModule, SharedModule, FormsModule],
 })
 export class EditorModule {}

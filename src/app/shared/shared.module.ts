@@ -51,7 +51,6 @@ import { NgModule } from '@angular/core';
     MatDividerModule,
     LastPathKeyPipe,
     IconButtonComponent,
-
   ],
   imports: [
     CommonModule,

@@ -12,9 +12,7 @@ export class ConfigNodeComponent {
   @Input() valueType!: 'string' | 'number' | 'bigint' | 'boolean' | 'symbol' | 'undefined' | 'object' | 'function';
   @Input() iconSize = '1.5rem';
 
-  constructor() {
-    console.log('test');
-  }
+  name(event: any) {}
 
   getFieldIcon() {
     if (this.valueType === 'string') {

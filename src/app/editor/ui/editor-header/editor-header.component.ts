@@ -4,10 +4,9 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
   selector: 'app-editor-header',
   templateUrl: './editor-header.component.html',
   styleUrls: ['./editor-header.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EditorHeaderComponent {
-  
   @Input() fileName = '';
 
   @Output() save = new EventEmitter<void>();

@@ -1,7 +1,10 @@
-<div class="flex px-2 py-1 my-2 h-9 leading-5 bg-dark-800 rounded-md hover:bg-dark-700/50 border-b-[1px] border-dark-700">
+<div
+  class="flex px-2 py-1 my-2 h-9 leading-5 bg-dark-800 rounded-md hover:bg-dark-700/50 border-b-[1px] border-dark-700"
+>
   <input class="input input--transparent w-48" [value]="path | lastPathKey" />
   <span class="mx-4 w-[1px] bg-dark-700"></span>
   <input class="input" [value]="value" />
+  <!-- [(ngModel)]="value" -->
   <!-- <app-material-input></app-material-input> -->
   <mat-icon class="ml-auto block leading-7" [style]="{ fontSize: iconSize, height: iconSize }">
     {{ getFieldIcon() }}

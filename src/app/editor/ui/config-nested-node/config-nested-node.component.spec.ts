@@ -8,9 +8,8 @@ describe('ConfigNestedNodeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ConfigNestedNodeComponent ]
-    })
-    .compileComponents();
+      declarations: [ConfigNestedNodeComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ConfigNestedNodeComponent);
     component = fixture.componentInstance;
