@@ -3,8 +3,14 @@
 <!-- <app-material-input></app-material-input> -->
 
 <div class="shadow-lg rounded-md overflow-hidden">
-  <app-editor-header [fileName]="fileName" (save)="onSave()" (delete)="onDelete()"></app-editor-header>
+  <app-editor-header [fileName]="fileName" [downloadLink]="downloadLink" (delete)="onDelete()"></app-editor-header>
   <div class="bg-dark-800 p-3">
-    <app-config-tree [configSection]="configuration"></app-config-tree>
+    <app-config-tree 
+    [fileExtension]="fileName.split('.').pop()!"
+    [configuration]="configuration"></app-config-tree>
   </div>
 </div>
+<label for="sth">Upload</label>
+<input id="sth" type="file" (change)="fileChanged($event)" />
+<!-- <button (click)="save()">Load File</button> -->
+<!-- <a [href]="downloadLink" download="config.json">Download</a> -->

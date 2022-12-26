@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
+import { SafeValue } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-editor-header',
   templateUrl: './editor-header.component.html',
@@ -8,7 +10,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 })
 export class EditorHeaderComponent {
   @Input() fileName = '';
+  @Input() downloadLink!: SafeValue;
 
-  @Output() save = new EventEmitter<void>();
   @Output() delete = new EventEmitter<void>();
 }

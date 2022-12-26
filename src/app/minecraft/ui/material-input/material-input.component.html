@@ -1,12 +1,12 @@
 <div class="flex gap-1 w-full">
 	<img
-	*ngIf="value$ | async | isMaterial"
-	[src]="'assets/minecraft/materials/' + (value$ | async | lowercase) + '.png'"
-	alt=""
-	aria-hidden="true"
-	class="w-7 aspect-square block"
-	matIconPrefix
-/>
+		*ngIf="value$ | async | isMaterial"
+		[src]="'assets/minecraft/materials/' + (value$ | async | lowercase) + '.png'"
+		alt=""
+		aria-hidden="true"
+		class="w-7 aspect-square block"
+		matIconPrefix
+	/>
 	<input
 		[matAutocomplete]="auto"
 		[ngModel]="value"

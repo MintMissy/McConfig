@@ -10,6 +10,8 @@ import { ConfigTreeStore } from './config-tree.store';
   providers: [ConfigTreeStore],
 })
 export class ConfigTreeComponent implements OnInit {
+  @Input() fileExtension!: string;
+  @Input() configuration!: string;
   @Input() configSection: any = {};
 
   @Output() expand = new EventEmitter<string>();
@@ -20,6 +22,7 @@ export class ConfigTreeComponent implements OnInit {
   constructor(private readonly componentStore: ConfigTreeStore) {}
 
   ngOnInit(): void {
+    this.configSection = JSON.parse(this.configuration);
     this.componentStore.setState({ config: this.configSection, expandedPaths: {} });
   }
 
