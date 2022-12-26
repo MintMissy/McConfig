@@ -9,7 +9,7 @@ import { BaseInputComponent } from '../base-input.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StringInputComponent extends BaseInputComponent<string> {
-  onValueChange(value: any): string {
-    throw new Error('Method not implemented.');
+  onValueChange(value: any): void {
+    this.valueChange.emit(value);
   }
 }

@@ -1,33 +1,32 @@
-<div class="flex gap-4 h-8">
-  <input
-    class="w-80 h-full px-2 py-2 text-black"
-    type="text"
-    placeholder=""
-    aria-label="Material"
-    [matAutocomplete]="auto"
-  />
-  <!-- [ngModel]="inputContent"
-    (ngModelChange)="onChange($event)" -->
-  <img
-    [src]="'assets/minecraft/materials/' + (input | async | lowercase) + '.png'"
-    alt=""
-    aria-hidden="true"
-    class="w-8 h-8 ml-2 block"
-    matIconPrefix
-    *ngIf="canShowIcon()"
-  />
-  <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-    <mat-option *ngFor="let material of autocomplete$ | async" [value]="material">
-      <div class="flex align-middle gap-4 h-6">
-        <img
-          [src]="'assets/minecraft/materials/' + (material | lowercase) + '.png'"
-          alt=""
-          aria-hidden="true"
-          class="w-6 h-full"
-        />
-        <p>{{ material }}</p>
-      </div>
-    </mat-option>
-  </mat-autocomplete>
+<div class="flex gap-1 w-full">
+	<input
+		[matAutocomplete]="auto"
+		[ngModel]="value"
+		(ngModelChange)="onValueChange($event)"
+		class="input w-full"
+		type="text"
+		placeholder=""
+		aria-label="Material"
+	/>
+	<img
+		*ngIf="value$ | async | isMaterial"
+		[src]="'assets/minecraft/materials/' + (value$ | async | lowercase) + '.png'"
+		alt=""
+		aria-hidden="true"
+		class="w-7 aspect-square block"
+		matIconPrefix
+	/>
+	<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+		<mat-option *ngFor="let material of autocomplete$ | async" [value]="material">
+			<div class="flex items-center gap-3 w-full px-2 py-1 bg-dark-900 hover:bg-dark-800">
+				<img
+					[src]="'assets/minecraft/materials/' + (material | lowercase) + '.png'"
+					alt=""
+					aria-hidden="true"
+					class="w-7 aspect-square block"
+				/>
+				<p class="text-sm h-4">{{ material }}</p>
+			</div>
+		</mat-option>
+	</mat-autocomplete>
 </div>
-<input />

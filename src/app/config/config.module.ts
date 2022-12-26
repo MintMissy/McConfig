@@ -7,12 +7,13 @@ import { ConfigNodeHeaderComponent } from './ui/config-node-header/config-node-h
 import { ConfigTreeComponent } from './feature/config-tree/config-tree.component';
 import { FormsModule } from '@angular/forms';
 import { LastPathKeyPipe } from './pipe/path/last-path-key.pipe';
+import { MinecraftModule } from '../minecraft/minecraft.module';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 import { TypeIconPipe } from './pipe/type-icon.pipe';
 
 @NgModule({
-  imports: [CommonModule, SharedModule, FormsModule],
+  imports: [CommonModule, SharedModule, FormsModule, MinecraftModule],
   declarations: [
     ConfigFieldComponent,
     ConfigNodeHeaderComponent,

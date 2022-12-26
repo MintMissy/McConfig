@@ -16,5 +16,6 @@ export const JSON_DATA = {
     runtime: 'python27',
     material: 'dirt',
     versionNumber: 10,
+    double: 10.1,
     threadsafe: true,
   };
