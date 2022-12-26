@@ -9,6 +9,7 @@ import { EditorHeaderComponent } from './ui/editor-header/editor-header.componen
 import { EditorRoutingModule } from './editor-routing.module';
 import { FormsModule } from '@angular/forms';
 import { MatTreeModule } from '@angular/material/tree';
+import { MinecraftModule } from '../minecraft/minecraft.module';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 
@@ -22,6 +23,6 @@ import { SharedModule } from '../shared/shared.module';
     ConfigNestedNodeComponent,
     EditorHeaderComponent,
   ],
-  imports: [CommonModule, EditorRoutingModule, SharedModule, MatTreeModule, SharedModule, FormsModule],
+  imports: [CommonModule, EditorRoutingModule, SharedModule, MatTreeModule, FormsModule, MinecraftModule],
 })
 export class EditorModule {}
