@@ -17,10 +17,7 @@ import { SharedModule } from '../shared/shared.module';
     ColorCodePipe,
     HexColorCodePipe,
   ],
-  imports: [
-    CommonModule,
-    SharedModule
-  ],
+  imports: [CommonModule, SharedModule],
   exports: [
     MinecraftTextPreviewComponent,
     MaterialInputComponent,
@@ -28,6 +25,6 @@ import { SharedModule } from '../shared/shared.module';
     MiniMessagePipe,
     ColorCodePipe,
     HexColorCodePipe,
-  ]
+  ],
 })
-export class MinecraftModule { }
+export class MinecraftModule {}

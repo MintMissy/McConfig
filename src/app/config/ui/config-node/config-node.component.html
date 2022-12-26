@@ -3,8 +3,8 @@
 >
   <input class="input input--transparent w-48" [value]="path | lastPathKey" />
   <span class="mx-4 w-[1px] bg-dark-700"></span>
-  <input class="input" [(ngModel)]="value" (focusout)="valueChange.emit({path: path, value: value})"/>
-  
+  <input class="input" [(ngModel)]="value" (focusout)="valueChange.emit({ path: path, value: value })" />
+
   <!-- <app-material-input></app-material-input> -->
   <mat-icon class="ml-auto block leading-7" [style]="{ fontSize: iconSize, height: iconSize }">
     {{ value | typeIcon }}

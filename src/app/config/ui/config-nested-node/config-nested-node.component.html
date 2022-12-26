@@ -3,7 +3,7 @@
     <!-- Field (String, Number, Boolean) -->
     <app-config-node
       *ngIf="(entry.value | typeOf) !== 'object'; else nestedNode"
-      [path]="entry.key | combinePath:path:root"
+      [path]="entry.key | combinePath : path : root"
       [value]="entry.value"
       (valueChange)="valueChange.emit($event)"
     ></app-config-node>
@@ -11,12 +11,12 @@
     <ng-template #nestedNode>
       <div>
         <app-config-node-header
-          [path]="entry.key | combinePath:path:root"
-          [expanded]="!!(expandedPaths && expandedPaths[entry.key | combinePath:path:root])"
+          [path]="entry.key | combinePath : path : root"
+          [expanded]="!!(expandedPaths && expandedPaths[entry.key | combinePath : path : root])"
           (expandToggle)="expandToggle.emit($event)"
         ></app-config-node-header>
         <app-config-nested-node
-          [path]="entry.key | combinePath:path:root"
+          [path]="entry.key | combinePath : path : root"
           [configEntries]="entry.value"
           [expandedPaths]="expandedPaths"
           (expandToggle)="expandToggle.emit($event)"

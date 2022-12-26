@@ -1,10 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'typeIcon'
+  name: 'typeIcon',
 })
 export class TypeIconPipe implements PipeTransform {
-
   transform(value: any): string {
     const valueType = typeof value;
     if (valueType === 'string') {
