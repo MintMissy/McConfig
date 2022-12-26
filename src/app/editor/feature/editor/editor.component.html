@@ -2,11 +2,9 @@
 <!-- <app-breadcrumb [path]="['a', 'b', 'c']" class="my-4 block"></app-breadcrumb> -->
 <!-- <app-material-input></app-material-input> -->
 
-<mat-divider class="pb-4"></mat-divider>
-
 <div class="shadow-lg rounded-md overflow-hidden">
   <app-editor-header [fileName]="fileName" (save)="onSave()" (delete)="onDelete()"></app-editor-header>
   <div class="bg-dark-800 p-3">
-    <app-config-tree></app-config-tree>
+    <app-config-tree [configSection]="configuration"></app-config-tree>
   </div>
 </div>

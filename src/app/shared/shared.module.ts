@@ -1,4 +1,3 @@
-import { BreadcrumbComponent } from './ui/breadcrumb/breadcrumb.component';
 import { CommonModule } from '@angular/common';
 import { EntriesPipe } from './pipe/entries.pipe';
 import { FooterComponent } from './ui/footer/footer.component';
@@ -13,13 +12,16 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavbarComponent } from './ui/navbar/navbar.component';
 import { NgModule } from '@angular/core';
 import { TypeOfPipe } from './pipe/types/type-of.pipe';
+import { BooleanInputComponent } from './ui/input/boolean-input/boolean-input.component';
+import { StringInputComponent } from './ui/input/string-input/string-input.component';
+import { IntegerInputComponent } from './ui/input/integer-input/integer-input.component';
+import { DoubleInputComponent } from './ui/input/double-input/double-input.component';
 
 @NgModule({
-  declarations: [NavbarComponent, FooterComponent, BreadcrumbComponent, IconButtonComponent, EntriesPipe, TypeOfPipe],
+  declarations: [NavbarComponent, FooterComponent, IconButtonComponent, EntriesPipe, TypeOfPipe, BooleanInputComponent, StringInputComponent, IntegerInputComponent, DoubleInputComponent],
   exports: [
     NavbarComponent,
     FooterComponent,
-    BreadcrumbComponent,
     MatIconModule,
     MatButtonModule,
     MatDividerModule,
