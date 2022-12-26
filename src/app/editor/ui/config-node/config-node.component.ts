@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-config-node',
@@ -11,9 +11,5 @@ export class ConfigNodeComponent {
   @Input() value: any = '';
   @Input() iconSize = '1.5rem';
 
-  constructor() {
-    console.log('test');
-  }
-
-  // name(event: any) {}
+  @Output() valueChange = new EventEmitter<{ path: string; value: any }>();
 }

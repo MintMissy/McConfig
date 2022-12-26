@@ -13,5 +13,5 @@ export class ConfigNestedNodeComponent {
   @Input() root = false;
 
   @Output() expandToggle = new EventEmitter<{ path: string }>();
-  @Output() fieldValueChange = new EventEmitter<{ path: string; value: any }>();
+  @Output() valueChange = new EventEmitter<{ path: string; value: any }>();
 }

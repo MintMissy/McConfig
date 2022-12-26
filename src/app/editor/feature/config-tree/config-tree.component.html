@@ -1,10 +1,11 @@
 <!-- <app-material-input *ngIf="entry[0] === 'material'"></app-material-input> -->
+<pre>{{ configSection$ | async | json }}</pre>
 <app-config-nested-node
   [path]="''"
   [configEntries]="configSection$ | async"
   [expandedPaths]="expandedPaths$ | async"
   [root]="true"
   (expandToggle)="onSectionExpand($event)"
-  (fieldValueChange)="onFieldValueChange($event)"
+  (valueChange)="onValueChange($event)"
 >
 </app-config-nested-node>

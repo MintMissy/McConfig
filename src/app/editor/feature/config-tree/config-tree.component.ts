@@ -47,8 +47,8 @@ export class ConfigTreeComponent implements OnInit {
     this.componentStore.setState({ config: JSON_DATA, expandedPaths: {} });
   }
 
-  onFieldValueChange($event: { path: string; value: any }) {
-    throw new Error('Method not implemented.');
+  onValueChange($event: { path: string; value: any }) {
+    this.componentStore.editValue($event);
   }
 
   onSectionExpand($event: { path: string }) {
