@@ -5,19 +5,19 @@
   <span class="mx-1 w-[1px] bg-dark-700"></span>
   <!-- <input class="input" [(ngModel)]="value" (focusout)="valueChange.emit({ path: path, value: value })" /> -->
 
-  <container-element [ngSwitch]="value | typeOf">
+  <container-element [ngSwitch]="value | strictTypeOf">
     <app-boolean-input
       *ngSwitchCase="'boolean'"
       [value]="value"
       (valueChange)="valueChange.emit({ path: path, value: $event })"
     ></app-boolean-input>
     <app-integer-input
-      *ngSwitchCase="'number'"
+      *ngSwitchCase="'integer'"
       [value]="value"
       (valueChange)="valueChange.emit({ path: path, value: $event })"
     ></app-integer-input>
     <app-double-input
-      *ngSwitchCase="'number'"
+      *ngSwitchCase="'double'"
       [value]="value"
       (valueChange)="valueChange.emit({ path: path, value: $event })"
     ></app-double-input>

@@ -14,8 +14,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavbarComponent } from './ui/navbar/navbar.component';
 import { NgModule } from '@angular/core';
+import { StrictTypeOfPipe } from './pipe/strict-type-of.pipe';
 import { StringInputComponent } from './ui/input/string-input/string-input.component';
-import { TypeOfPipe } from './pipe/types/type-of.pipe';
+import { TypeOfPipe } from './pipe/type-of.pipe';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { TypeOfPipe } from './pipe/types/type-of.pipe';
     StringInputComponent,
     IntegerInputComponent,
     DoubleInputComponent,
+    StrictTypeOfPipe,
   ],
   exports: [
     NavbarComponent,
@@ -43,6 +45,7 @@ import { TypeOfPipe } from './pipe/types/type-of.pipe';
     StringInputComponent,
     IntegerInputComponent,
     DoubleInputComponent,
+    StrictTypeOfPipe,
   ],
   imports: [
     CommonModule,
