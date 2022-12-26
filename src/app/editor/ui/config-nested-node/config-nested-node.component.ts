@@ -14,30 +14,4 @@ export class ConfigNestedNodeComponent {
 
   @Output() expandToggle = new EventEmitter<{ path: string }>();
   @Output() fieldValueChange = new EventEmitter<{ path: string; value: any }>();
-
-  combinePath(key: string): string {
-    if (this.root) {
-      return key;
-    }
-    return this.path + '.' + key;
-  }
-
-  isExpandable(value: any): boolean {
-    return typeof value === 'object';
-  }
-
-  getFieldType(value: any) {
-    return typeof value;
-  }
-
-  getEntries(value: any): any[] {
-    if (this.isFieldExpandable(value)) {
-      return Object.entries(value);
-    }
-    return [value];
-  }
-
-  isFieldExpandable(value: any): boolean {
-    return typeof value === 'object';
-  }
 }

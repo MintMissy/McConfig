@@ -1,24 +1,22 @@
 <ng-container *ngIf="root || (expandedPaths && expandedPaths[path])">
-  <!-- entry[0] = key; entry[1] = value  -->
-  <div *ngFor="let entry of getEntries(configEntries)" [ngClass]="root ? '' : 'pl-6 border-l-2 border-dark-700/50'">
+  <div *ngFor="let entry of configEntries | entries" [ngClass]="root ? '' : 'pl-6 border-l-2 border-dark-700/50'">
     <!-- Field (String, Number, Boolean) -->
     <app-config-node
-      *ngIf="!isExpandable(entry[1]); else nestedNode"
-      [path]="combinePath(entry[0])"
-      [value]="entry[1]"
-      [valueType]="getFieldType(entry[1])"
+      *ngIf="(entry.value | typeOf) !== 'object'; else nestedNode"
+      [path]="entry.key | combinePath:path:root"
+      [value]="entry.value"
     ></app-config-node>
     <!-- Nested Node (Object, Array) -->
     <ng-template #nestedNode>
       <div>
         <app-config-node-header
-          [path]="combinePath(entry[0])"
-          [expanded]="!!(expandedPaths && expandedPaths[combinePath(entry[0])])"
+          [path]="entry.key | combinePath:path:root"
+          [expanded]="!!(expandedPaths && expandedPaths[entry.key | combinePath:path:root])"
           (expandToggle)="expandToggle.emit($event)"
         ></app-config-node-header>
         <app-config-nested-node
-          [path]="combinePath(entry[0])"
-          [configEntries]="entry[1]"
+          [path]="entry.key | combinePath:path:root"
+          [configEntries]="entry.value"
           [expandedPaths]="expandedPaths"
           (expandToggle)="expandToggle.emit($event)"
           (fieldValueChange)="fieldValueChange.emit($event)"

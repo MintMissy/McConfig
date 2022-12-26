@@ -1,12 +1,14 @@
 import { BreadcrumbComponent } from './ui/breadcrumb/breadcrumb.component';
 import { ColorCodePipe } from './pipe/minecraft-text/color-code/color-code.pipe';
+import { CombinePathPipe } from './pipe/path/combine-path.pipe';
 import { CommonModule } from '@angular/common';
+import { EntriesPipe } from './pipe/entries.pipe';
 import { FooterComponent } from './ui/footer/footer.component';
 import { FormatConfigKeyPipe } from './pipe/format-config-key.pipe';
 import { FormsModule } from '@angular/forms';
 import { HexColorCodePipe } from './pipe/minecraft-text/hex-color-code/hex-color-code.pipe';
 import { IconButtonComponent } from './ui/icon-button/icon-button.component';
-import { LastPathKeyPipe } from './pipe/last-path-key.pipe';
+import { LastPathKeyPipe } from './pipe/path/last-path-key.pipe';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
@@ -19,6 +21,8 @@ import { MinecraftTextPreviewComponent } from './ui/minecraft-text-preview/minec
 import { MiniMessagePipe } from './pipe/minecraft-text/mini-message/mini-message.pipe';
 import { NavbarComponent } from './ui/navbar/navbar.component';
 import { NgModule } from '@angular/core';
+import { TypeIconPipe } from './pipe/types/type-icon.pipe';
+import { TypeOfPipe } from './pipe/types/type-of.pipe';
 
 @NgModule({
   declarations: [
@@ -34,6 +38,10 @@ import { NgModule } from '@angular/core';
     BreadcrumbComponent,
     LastPathKeyPipe,
     IconButtonComponent,
+    EntriesPipe,
+    TypeOfPipe,
+    CombinePathPipe,
+    TypeIconPipe,
   ],
   exports: [
     NavbarComponent,
@@ -51,6 +59,10 @@ import { NgModule } from '@angular/core';
     MatDividerModule,
     LastPathKeyPipe,
     IconButtonComponent,
+    EntriesPipe,
+    TypeOfPipe,
+    CombinePathPipe,
+    TypeIconPipe
   ],
   imports: [
     CommonModule,

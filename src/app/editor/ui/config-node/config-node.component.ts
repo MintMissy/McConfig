@@ -8,19 +8,12 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 })
 export class ConfigNodeComponent {
   @Input() path = 'path';
-  @Input() value = '';
-  @Input() valueType!: 'string' | 'number' | 'bigint' | 'boolean' | 'symbol' | 'undefined' | 'object' | 'function';
+  @Input() value: any = '';
   @Input() iconSize = '1.5rem';
 
-  name(event: any) {}
-
-  getFieldIcon() {
-    if (this.valueType === 'string') {
-      return 'format_bold';
-    } else if (this.valueType === 'boolean') {
-      return 'done';
-    } else {
-      return '123';
-    }
+  constructor() {
+    console.log('test');
   }
+
+  // name(event: any) {}
 }

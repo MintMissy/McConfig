@@ -7,6 +7,6 @@
   <!-- [(ngModel)]="value" -->
   <!-- <app-material-input></app-material-input> -->
   <mat-icon class="ml-auto block leading-7" [style]="{ fontSize: iconSize, height: iconSize }">
-    {{ getFieldIcon() }}
+    {{ value | typeIcon }}
   </mat-icon>
 </div>
