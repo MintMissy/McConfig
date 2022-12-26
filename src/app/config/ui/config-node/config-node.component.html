@@ -2,10 +2,10 @@
 	class="flex pl-1 pr-2 py-1 my-2 h-9 leading-5 bg-dark-800 rounded-md hover:bg-dark-700/50 border-b-[1px] border-dark-700"
 >
 	<input class="input input--transparent w-48" [value]="path | lastPathKey" />
-	<span class="mx-1 w-[1px] bg-dark-700"></span>
+	<span class="mx-2 w-[1px] bg-dark-700"></span>
 	<!-- <input class="input" [(ngModel)]="value" (focusout)="valueChange.emit({ path: path, value: value })" /> -->
 
-	<container-element [ngSwitch]="value | typeOf">
+	<div class="w-full" [ngSwitch]="value | typeOf">
 		<app-boolean-input
 			*ngSwitchCase="'boolean'"
 			[value]="value"
@@ -29,9 +29,8 @@
 			></app-string-input>
     </ng-template>
 		</ng-container>
-	</container-element>
-	<!-- <app-material-input></app-material-input> -->
-	<mat-icon class="ml-auto block leading-7" [style]="{ fontSize: iconSize, height: iconSize }">
+	</div>
+	<mat-icon class="block mx-2 leading-7" [style]="{ fontSize: iconSize, height: iconSize }">
 		{{ value | typeIcon }}
 	</mat-icon>
 </div>
