@@ -9,7 +9,7 @@ import { BaseInputComponent } from '../base-input.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BooleanInputComponent extends BaseInputComponent<boolean> {
-  onValueChange(value: any): boolean {
-    throw new Error('Method not implemented.');
+  onValueChange(): void {
+    this.valueChange.emit(!this.value);
   }
 }

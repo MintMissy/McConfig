@@ -3,8 +3,30 @@
 >
   <input class="input input--transparent w-48" [value]="path | lastPathKey" />
   <span class="mx-1 w-[1px] bg-dark-700"></span>
-  <input class="input" [(ngModel)]="value" (focusout)="valueChange.emit({ path: path, value: value })" />
+  <!-- <input class="input" [(ngModel)]="value" (focusout)="valueChange.emit({ path: path, value: value })" /> -->
 
+  <container-element [ngSwitch]="value | typeOf">
+    <app-boolean-input
+      *ngSwitchCase="'boolean'"
+      [value]="value"
+      (valueChange)="valueChange.emit({ path: path, value: $event })"
+    ></app-boolean-input>
+    <app-integer-input
+      *ngSwitchCase="'number'"
+      [value]="value"
+      (valueChange)="valueChange.emit({ path: path, value: $event })"
+    ></app-integer-input>
+    <app-double-input
+      *ngSwitchCase="'number'"
+      [value]="value"
+      (valueChange)="valueChange.emit({ path: path, value: $event })"
+    ></app-double-input>
+    <app-string-input
+      *ngSwitchCase="'string'"
+      [value]="value"
+      (valueChange)="valueChange.emit({ path: path, value: $event })"
+    ></app-string-input>
+  </container-element>
   <!-- <app-material-input></app-material-input> -->
   <mat-icon class="ml-auto block leading-7" [style]="{ fontSize: iconSize, height: iconSize }">
     {{ value | typeIcon }}

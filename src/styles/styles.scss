@@ -19,30 +19,8 @@ $dark-theme: mat.define-dark-theme(
 @include mat.core-theme($dark-theme);
 @include mat.button-theme($dark-theme);
 
-// // Apply the light theme only when the user prefers light themes.
-// @media (prefers-color-scheme: light) {
-//  // Use the `-color` mixins to only apply color styles without reapplying the same
-//  // typography and density styles.
-//  @include mat.core-color($light-theme);
-//  @include mat.button-color($light-theme);
-// }
-
 @import "reset";
 @import "material-reset";
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
 
 .minecraft-font {
   font-family: "MinecraftiaRegular";
@@ -50,10 +28,8 @@ body {
   font-style: normal;
 }
 
-.input {
-  @apply px-2 py-1 text-white rounded-md bg-dark-900/50 focus:outline-none focus:ring-1 focus:ring-dark-900 hover:bg-dark-900/75 focus:bg-dark-900;
-}
+@import "components";
 
-.input--transparent {
-  @apply bg-transparent hover:bg-dark-900/50;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   template: '',
@@ -8,5 +8,5 @@ export abstract class BaseInputComponent<T> {
 
   @Output() valueChange = new EventEmitter<T>();
 
-  abstract onValueChange(value: any): T;
+  abstract onValueChange(value?: any): void;
 }

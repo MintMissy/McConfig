@@ -1,1 +1,3 @@
-<input class="input" [ngModel]="value" (ngModelChange)="onValueChange($event)">
+<button (click)="onValueChange()" [ngClass]="value ? 'text-lime-500' : 'text-red-400'" class="input w-20 text-center">
+  {{ value }}
+</button>
