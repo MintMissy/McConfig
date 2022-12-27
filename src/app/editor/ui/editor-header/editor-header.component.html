@@ -1,5 +1,5 @@
-<div class="bg-primary-600 px-4 py-3 flex justify-between items-center">
-	<h2 class="font-medium text-base">{{ fileName !== "" ? fileName : "No file has been uploaded yet" }}</h2>
+<div class="flex items-center justify-between bg-primary-600 px-4 py-3">
+	<h2 class="text-base font-medium">{{ fileName !== "" ? fileName : "No file has been uploaded yet" }}</h2>
 	<div class="flex gap-3">
 		<ng-container *ngIf="fileName !== ''; else uploadSection">
 			<app-icon-button text="Remove" icon="delete" (clickEvent)="delete.emit()"></app-icon-button>

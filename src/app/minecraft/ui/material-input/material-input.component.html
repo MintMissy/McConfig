@@ -1,10 +1,10 @@
-<div class="flex gap-1 w-full">
+<div class="flex w-full gap-1">
 	<img
 		*ngIf="value$ | async | isMaterial"
 		[src]="'assets/minecraft/materials/' + (value$ | async | lowercase) + '.png'"
 		alt=""
 		aria-hidden="true"
-		class="w-7 aspect-square block"
+		class="block aspect-square w-7"
 		matIconPrefix
 	/>
 	<input
@@ -18,14 +18,14 @@
 	/>
 	<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
 		<mat-option *ngFor="let material of autocomplete$ | async" [value]="material">
-			<div class="flex items-center gap-3 w-full px-2 py-1 bg-dark-900 hover:bg-dark-800">
+			<div class="flex w-full items-center gap-3 bg-dark-900 px-2 py-1 hover:bg-dark-800">
 				<img
 					[src]="'assets/minecraft/materials/' + (material | lowercase) + '.png'"
 					alt=""
 					aria-hidden="true"
-					class="w-7 aspect-square block"
+					class="block aspect-square w-7"
 				/>
-				<p class="text-sm h-4">{{ material }}</p>
+				<p class="h-4 text-sm">{{ material }}</p>
 			</div>
 		</mat-option>
 	</mat-autocomplete>
