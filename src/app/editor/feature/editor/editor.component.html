@@ -1,18 +1,13 @@
 <!-- <app-minecraft-text-preview [name]="name" [lore]="lore"></app-minecraft-text-preview> -->
-<!-- <app-breadcrumb [path]="['a', 'b', 'c']" class="my-4 block"></app-breadcrumb> -->
-<!-- <app-material-input></app-material-input> -->
 
 <div class="shadow-lg rounded-md overflow-hidden">
 	<app-editor-header
 		[fileName]="fileName$ | async"
 		[downloadLink]="downloadLink$ | async"
 		(delete)="onRemove()"
+		(upload)="onUpload($event)"
 	></app-editor-header>
 	<div class="bg-dark-800 p-3">
-		<app-config-tree [configSection]="configuration$ | async"></app-config-tree>
+		<app-config-tree #configTree [configSection]="configuration$ | async"></app-config-tree>
 	</div>
 </div>
-<label for="sth">Upload</label>
-<input id="sth" type="file" (change)="fileChanged($event)" />
-<!-- <button (click)="save()">Load File</button> -->
-<!-- <a [href]="downloadLink" download="config.json">Download</a> -->

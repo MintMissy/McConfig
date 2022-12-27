@@ -1,4 +1,4 @@
-<!-- <app-material-input *ngIf="entry[0] === 'material'"></app-material-input> -->
+<pre>{{ configSection | json }}</pre>
 <pre>{{ configSection$ | async | json }}</pre>
 <app-config-nested-node
 	[path]="''"

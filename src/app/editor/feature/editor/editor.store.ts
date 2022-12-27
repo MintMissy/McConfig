@@ -31,6 +31,7 @@ export class EditorStore extends ComponentStore<EditorState> {
 		const configType = getConfigType(file);
 		this.fileService = this.factory.create(configType);
 		this.fileService.serialize(file, (data) => {
+			console.log(data);
 			this.patchState((state) => ({
 				...state,
 				fileName: file.name,
@@ -48,7 +49,7 @@ export class EditorStore extends ComponentStore<EditorState> {
 	}
 
 	removeFile() {
-		this.patchState((state) => ({
+		this.patchState(() => ({
 			configType: ConfigType.JSON,
 			fileName: '',
 			fileContent: '',

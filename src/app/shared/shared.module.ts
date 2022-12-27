@@ -1,6 +1,7 @@
 import { BooleanInputComponent } from './ui/input/boolean-input/boolean-input.component';
 import { CommonModule } from '@angular/common';
 import { EntriesPipe } from './pipe/entries.pipe';
+import { FileInputComponent } from './ui/input/file-input/file-input.component';
 import { FooterComponent } from './ui/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { IconButtonComponent } from './ui/icon-button/icon-button.component';
@@ -26,6 +27,7 @@ import { TypeOfPipe } from './pipe/type-of.pipe';
 		BooleanInputComponent,
 		StringInputComponent,
 		NumberInputComponent,
+		FileInputComponent,
 	],
 	exports: [
 		NavbarComponent,
@@ -40,6 +42,7 @@ import { TypeOfPipe } from './pipe/type-of.pipe';
 		BooleanInputComponent,
 		StringInputComponent,
 		NumberInputComponent,
+		FileInputComponent,
 	],
 	imports: [
 		CommonModule,

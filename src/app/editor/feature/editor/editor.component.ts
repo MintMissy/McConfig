@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
 
+import { ConfigTreeComponent } from 'src/app/config/feature/config-tree/config-tree.component';
 import { ConfigType } from 'src/app/config/enums/config-type.enum';
 import { EditorStore } from './editor.store';
 
@@ -11,12 +12,17 @@ import { EditorStore } from './editor.store';
 	providers: [EditorStore],
 })
 export class EditorComponent implements OnInit {
+	@ViewChild(ConfigTreeComponent)
+	set configTree(component: ConfigTreeComponent) {
+		console.log(component);
+	}
+
 	downloadLink$ = this.store.downloadLink$;
 	fileName$ = this.store.fileName$;
 	fileContent$ = this.store.fileContent$;
 	configuration$ = this.store.configuration$;
 
-	constructor(private store: EditorStore) {}
+	constructor(private readonly store: EditorStore) {}
 
 	ngOnInit(): void {
 		this.store.setState({
@@ -26,18 +32,19 @@ export class EditorComponent implements OnInit {
 			configuration: {},
 			downloadLink: '',
 		});
+		console.log(this.configTree);
 	}
 
-	fileChanged(event: Event) {
+	onRemove() {
+		this.store.removeFile();
+	}
+
+	onUpload(event: Event) {
 		const input = event?.target as HTMLInputElement;
 		if (input === null || input.files === null) {
 			return;
 		}
 
 		this.store.uploadFile(input.files[0]);
-	}
-	
-	onRemove() {
-		this.store.removeFile();
 	}
 }

@@ -11,8 +11,12 @@ export abstract class ConfigFileService {
 	protected readFile(file: File, callback: (fileContent: string) => void): void {
 		const fileReader: FileReader = new FileReader();
 		fileReader.onloadend = () => {
-			callback(fileReader.result as string);
+			callback((fileReader.result as string));
 		};
 		fileReader.readAsText(file);
+	}
+
+	protected replaceCharacters(fileContent: string): string {
+		return fileContent.replace(/\r\n\t/g, '');
 	}
 }

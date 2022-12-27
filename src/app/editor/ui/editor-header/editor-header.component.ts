@@ -13,4 +13,5 @@ export class EditorHeaderComponent {
 	@Input() downloadLink!: SafeValue | null;
 
 	@Output() delete = new EventEmitter<void>();
+	@Output() upload = new EventEmitter<Event>();
 }

@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 export class JsonFileService extends ConfigFileService {
 	serialize(file: File, callback: SerializationCallback): void {
 		this.readFile(file, (fileContent: string) => {
-			callback({ configuration: JSON.parse(fileContent), fileContent: fileContent });
+			callback({ configuration: JSON.parse(this.replaceCharacters(fileContent)), fileContent: fileContent });
 		});
 	}
 
