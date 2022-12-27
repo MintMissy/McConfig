@@ -11,4 +11,7 @@ export class ConfigNodeHeaderComponent {
 	@Input() expanded = false;
 
 	@Output() expandToggle = new EventEmitter<{ path: string }>();
+	@Output() addSubKey = new EventEmitter<string>();
+	@Output() remove = new EventEmitter<string>();
+	@Output() clone = new EventEmitter<string>();
 }

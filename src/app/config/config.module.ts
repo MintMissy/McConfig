@@ -10,6 +10,7 @@ import { MinecraftModule } from '../minecraft/minecraft.module';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 import { TypeIconPipe } from './pipe/type-icon.pipe';
+import { ConfigNodeMenuComponent } from './ui/config-node-menu/config-node-menu.component';
 
 @NgModule({
 	imports: [CommonModule, SharedModule, FormsModule, MinecraftModule],
@@ -21,6 +22,7 @@ import { TypeIconPipe } from './pipe/type-icon.pipe';
 		LastPathKeyPipe,
 		CombinePathPipe,
 		TypeIconPipe,
+  ConfigNodeMenuComponent,
 	],
 	exports: [
 		ConfigNodeHeaderComponent,

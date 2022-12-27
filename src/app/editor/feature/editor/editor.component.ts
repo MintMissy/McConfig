@@ -3,6 +3,28 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ConfigType } from 'src/app/config/enums/config-type.enum';
 import { EditorStore } from './editor.store';
 
+const defaultConfig = {
+	deployment: {
+		test: 'A',
+		files: ['fileA', 'FileB'],
+	},
+	x: 'a',
+	id: 'v1',
+	handlers: [
+		{
+			urlRegex: '/.*',
+			script: {
+				scriptPath: 'example-python-app.py',
+			},
+		},
+	],
+	runtime: 'python27',
+	material: 'ROOTED_DIRT',
+	versionNumber: 10,
+	double: 10.1,
+	threadsafe: false,
+};
+
 @Component({
 	selector: 'app-editor',
 	templateUrl: './editor.component.html',
@@ -23,12 +45,12 @@ export class EditorComponent implements OnInit {
 			fileName: '',
 			configType: ConfigType.JSON,
 			fileContent: '',
-			configuration: {},
+			configuration: defaultConfig,
 			downloadLink: '',
 		});
 	}
 
-	onRemove() {
+	onConfigRemove() {
 		this.store.removeFile();
 	}
 
@@ -41,5 +63,17 @@ export class EditorComponent implements OnInit {
 
 	onValueChange($event: { path: string; value: any }) {
 		this.store.editValue($event);
+	}
+
+	onKeyClone(path: string) {
+		this.store.cloneKey(path)
+	}
+
+	onKeyRemove(path: string) {
+		this.store.removeKey(path)
+	}
+
+	onAddSubKey($event: string) {
+		this.store.addSubKey($event)
 	}
 }

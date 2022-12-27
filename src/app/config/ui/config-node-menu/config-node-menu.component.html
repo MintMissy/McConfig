@@ -1,0 +1,14 @@
+<button [matMenuTriggerFor]="menu" class="px-2">
+	<mat-icon class="h-4 leading-5">more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+	<button mat-menu-item (click)="clone.emit()">
+		<span class="menu-item">Clone</span>
+	</button>
+	<button mat-menu-item (click)="remove.emit()">
+		<span class="menu-item">Remove</span>
+	</button>
+	<button mat-menu-item (click)="addSubKey.emit()">
+		<span class="menu-item">Add Sub-Key</span>
+	</button>
+</mat-menu>

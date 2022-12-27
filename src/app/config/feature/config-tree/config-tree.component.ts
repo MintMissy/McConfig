@@ -13,6 +13,9 @@ export class ConfigTreeComponent implements OnInit {
 	@Input() configSection: Record<string | number, any> | null = {};
 
 	@Output() valueChange = new EventEmitter<{ path: string; value: any }>();
+	@Output() addSubKey = new EventEmitter<string>();
+	@Output() clone = new EventEmitter<string>();
+	@Output() remove = new EventEmitter<string>();
 
 	expandedPaths$ = this.componentStore.expandedPaths$;
 

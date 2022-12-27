@@ -5,7 +5,7 @@ import { ComponentStore } from '@ngrx/component-store';
 import { ConfigFileService } from 'src/app/config/service/config-file-service.class';
 import { FileServiceFactory } from 'src/app/config/service/file-service-factory.service';
 import { Injectable } from '@angular/core';
-import { setValue } from 'src/app/shared/utility/object-utility';
+import { removeKey, setValue } from 'src/app/shared/utility/object-utility';
 
 export interface EditorState {
 	fileName: string;
@@ -52,6 +52,35 @@ export class EditorStore extends ComponentStore<EditorState> {
 				downloadLink: this.getDownloadUrl(data.fileContent),
 			}));
 		});
+	}
+
+	addSubKey($event: string) {
+		// TODO fix add sub key
+		this.patchState((state) => {
+			const newConfiguration = setValue({ ...state.configuration }, $event + '.newKey', '');
+			return {
+				...state,
+				configuration: newConfiguration,
+				downloadLink: this.getDownloadUrl(this.fileService.deserialize(newConfiguration)),
+			};
+		});
+	}
+
+	removeKey(path: string) {
+		// TODO remove key doesn't work
+		this.patchState((state) => {
+			const newConfiguration = removeKey({ ...state.configuration }, path);
+			return {
+				...state,
+				configuration: newConfiguration,
+				downloadLink: this.getDownloadUrl(this.fileService.deserialize(newConfiguration)),
+			};
+		});
+	}
+
+	cloneKey(path: string) {
+		// TODO clone key
+		console.log('');
 	}
 
 	private getDownloadUrl(fileContent: string) {

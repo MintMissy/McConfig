@@ -13,6 +13,9 @@ export class ConfigNestedNodeComponent {
 	@Input() root = false;
 
 	@Output() expandToggle = new EventEmitter<{ path: string }>();
+	@Output() addSubKey = new EventEmitter<string>();
+	@Output() remove = new EventEmitter<string>();
+	@Output() clone = new EventEmitter<string>();
 	@Output() valueChange = new EventEmitter<{ path: string; value: any }>();
 
 	trackEntry(index: number, entry: { key: string | number; value: any }) {

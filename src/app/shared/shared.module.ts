@@ -16,7 +16,8 @@ import { NgModule } from '@angular/core';
 import { NumberInputComponent } from './ui/input/number-input/number-input.component';
 import { StringInputComponent } from './ui/input/string-input/string-input.component';
 import { TypeOfPipe } from './pipe/type-of.pipe';
-
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatMenuModule} from '@angular/material/menu';
 @NgModule({
 	declarations: [
 		NavbarComponent,
@@ -28,6 +29,7 @@ import { TypeOfPipe } from './pipe/type-of.pipe';
 		StringInputComponent,
 		NumberInputComponent,
 		FileInputComponent,
+
 	],
 	exports: [
 		NavbarComponent,
@@ -43,6 +45,8 @@ import { TypeOfPipe } from './pipe/type-of.pipe';
 		StringInputComponent,
 		NumberInputComponent,
 		FileInputComponent,
+		MatTooltipModule,
+		MatMenuModule
 	],
 	imports: [
 		CommonModule,
@@ -53,6 +57,8 @@ import { TypeOfPipe } from './pipe/type-of.pipe';
 		MatToolbarModule,
 		MatButtonModule,
 		MatDividerModule,
+		MatTooltipModule,
+		MatMenuModule
 	],
 })
 export class SharedModule {}

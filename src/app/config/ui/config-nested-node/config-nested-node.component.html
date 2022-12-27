@@ -16,6 +16,9 @@
 				[path]="entry.key | combinePath : path : root"
 				[expanded]="!!(expandedPaths && expandedPaths[entry.key | combinePath : path : root])"
 				(expandToggle)="expandToggle.emit($event)"
+				(addSubKey)="addSubKey.emit($event)"
+				(remove)="remove.emit($event)"
+				(clone)="clone.emit($event)"
 			></app-config-node-header>
 			<app-config-nested-node
 				[path]="entry.key | combinePath : path : root"
