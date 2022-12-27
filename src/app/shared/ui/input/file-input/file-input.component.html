@@ -4,5 +4,5 @@
 >
 	<mat-icon class="text-[20px]">{{ icon }}</mat-icon>
 	<span class="text-base font-medium">{{ text }}</span>
-	<input (input)="fileUpload.emit($event)" type="file" aria-hidden="true" class="invisible h-0 w-0" />
+	<input (input)="fileUpload.emit($event)" type="file" aria-hidden="true" class="invisible h-0 w-0" [accept]="accept" />
 </label>

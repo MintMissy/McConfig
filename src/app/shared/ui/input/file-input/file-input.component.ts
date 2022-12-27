@@ -10,6 +10,7 @@ export class FileInputComponent {
 	@Input() icon!: string;
 	@Input() text!: string;
 	@Input() classes = '';
+	@Input() accept = '';
 
 	@Output() fileUpload = new EventEmitter<Event>();
 }

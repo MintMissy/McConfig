@@ -8,7 +8,7 @@
 			</a>
 		</ng-container>
 		<ng-template #uploadSection>
-			<app-file-input (fileUpload)="upload.emit($event)" text="Upload" icon="upload"></app-file-input>
+			<app-file-input (fileUpload)="upload.emit($event)" accept=".json,.yaml,.yml" text="Upload" icon="upload"></app-file-input>
 		</ng-template>
 	</div>
 </div>
