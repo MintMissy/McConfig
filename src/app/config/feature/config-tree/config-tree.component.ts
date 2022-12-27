@@ -12,19 +12,16 @@ import { ConfigTreeStore } from './config-tree.store';
 export class ConfigTreeComponent implements OnInit {
 	@Input() configSection: Record<string | number, any> | null = {};
 
-	configSection$ = this.componentStore.config$;
+	@Output() valueChange = new EventEmitter<{path: string, value: any}>();
+
 	expandedPaths$ = this.componentStore.expandedPaths$;
 
 	constructor(private readonly componentStore: ConfigTreeStore) {}
 
 	ngOnInit(): void {
-		this.componentStore.setState({ config: this.configSection, expandedPaths: {} });
+		this.componentStore.setState({ expandedPaths: {} });
 	}
-
-	onValueChange($event: { path: string; value: any }) {
-		this.componentStore.editValue($event);
-	}
-
+	
 	onSectionExpand($event: { path: string }) {
 		this.componentStore.toggleExpand($event.path);
 	}

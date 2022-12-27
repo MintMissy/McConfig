@@ -5,6 +5,7 @@ import { ComponentStore } from '@ngrx/component-store';
 import { ConfigFileService } from 'src/app/config/service/config-file-service.class';
 import { FileServiceFactory } from 'src/app/config/service/file-service-factory.service';
 import { Injectable } from '@angular/core';
+import { setValue } from 'src/app/shared/utility/object-utility';
 
 export interface EditorState {
 	fileName: string;
@@ -27,11 +28,16 @@ export class EditorStore extends ComponentStore<EditorState> {
 	readonly fileContent$ = this.select((state) => state.fileContent);
 	readonly configuration$ = this.select((state) => state.configuration);
 
+	editValue(change: { path: string; value: any }) {
+		this.patchState((state) => {
+			return { ...state, configuration: setValue({ ...state.configuration }, change.path, change.value) };
+		});
+	}
+
 	uploadFile(file: File) {
 		const configType = getConfigType(file);
 		this.fileService = this.factory.create(configType);
 		this.fileService.serialize(file, (data) => {
-			console.log(data);
 			this.patchState((state) => ({
 				...state,
 				fileName: file.name,

@@ -1,11 +1,9 @@
-<pre>{{ configSection | json }}</pre>
-<pre>{{ configSection$ | async | json }}</pre>
 <app-config-nested-node
 	[path]="''"
-	[configEntries]="configSection$ | async"
+	[configEntries]="configSection"
 	[expandedPaths]="expandedPaths$ | async"
 	[root]="true"
 	(expandToggle)="onSectionExpand($event)"
-	(valueChange)="onValueChange($event)"
+	(valueChange)="valueChange.emit($event)"
 >
 </app-config-nested-node>

@@ -12,11 +12,6 @@ import { EditorStore } from './editor.store';
 	providers: [EditorStore],
 })
 export class EditorComponent implements OnInit {
-	@ViewChild(ConfigTreeComponent)
-	set configTree(component: ConfigTreeComponent) {
-		console.log(component);
-	}
-
 	downloadLink$ = this.store.downloadLink$;
 	fileName$ = this.store.fileName$;
 	fileContent$ = this.store.fileContent$;
@@ -32,7 +27,6 @@ export class EditorComponent implements OnInit {
 			configuration: {},
 			downloadLink: '',
 		});
-		console.log(this.configTree);
 	}
 
 	onRemove() {
@@ -41,10 +35,12 @@ export class EditorComponent implements OnInit {
 
 	onUpload(event: Event) {
 		const input = event?.target as HTMLInputElement;
-		if (input === null || input.files === null) {
-			return;
-		}
+		if (input === null || input.files === null) return;
 
 		this.store.uploadFile(input.files[0]);
+	}
+
+	onValueChange($event: { path: string; value: any }) {
+		this.store.editValue($event);
 	}
 }

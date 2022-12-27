@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, Simple
 })
 export class ConfigNestedNodeComponent {
 	@Input() path = '';
-	@Input() configEntries: any[][] = [];
+	@Input() configEntries: Record<string | number, any> | null = [];
 	@Input() expandedPaths: { [path: string]: boolean } | null = {};
 	@Input() root = false;
 
