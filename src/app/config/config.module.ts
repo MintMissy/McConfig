@@ -1,6 +1,5 @@
 import { CombinePathPipe } from './pipe/path/combine-path.pipe';
 import { CommonModule } from '@angular/common';
-import { ConfigFieldComponent } from './ui/config-field/config-field.component';
 import { ConfigNestedNodeComponent } from './ui/config-nested-node/config-nested-node.component';
 import { ConfigNodeComponent } from './ui/config-node/config-node.component';
 import { ConfigNodeHeaderComponent } from './ui/config-node-header/config-node-header.component';
@@ -15,7 +14,6 @@ import { TypeIconPipe } from './pipe/type-icon.pipe';
 @NgModule({
 	imports: [CommonModule, SharedModule, FormsModule, MinecraftModule],
 	declarations: [
-		ConfigFieldComponent,
 		ConfigNodeHeaderComponent,
 		ConfigTreeComponent,
 		ConfigNodeComponent,
@@ -25,7 +23,6 @@ import { TypeIconPipe } from './pipe/type-icon.pipe';
 		TypeIconPipe,
 	],
 	exports: [
-		ConfigFieldComponent,
 		ConfigNodeHeaderComponent,
 		ConfigTreeComponent,
 		ConfigNodeComponent,
