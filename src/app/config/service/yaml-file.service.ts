@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
 	providedIn: ConfigModule,
 })
-export class YamlService implements ConfigFileService {
+export class YamlFileService implements ConfigFileService {
 	serialize(configuration: string): Record<string | number, any> {
 		return parse(configuration);
 	}

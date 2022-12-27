@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { YamlService } from './yaml.service';
+import { YamlFileService } from './yaml-file.service';
 
-describe('YamlService', () => {
-  let service: YamlService;
+describe('YamlFileService', () => {
+  let service: YamlFileService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(YamlService);
+    service = TestBed.inject(YamlFileService);
   });
 
   it('should be created', () => {

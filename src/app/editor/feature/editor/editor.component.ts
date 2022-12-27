@@ -1,6 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { DomSanitizer, SafeValue } from '@angular/platform-browser';
 
+import { ConfigFileService } from 'src/app/config/service/config-file-service.interface';
+import { ConfigType } from 'src/app/config/enums/config-type.enum';
+import { FileServiceFactory } from 'src/app/config/service/file-service-factory.service';
+
 @Component({
 	selector: 'app-editor',
 	templateUrl: './editor.component.html',
@@ -13,6 +17,7 @@ export class EditorComponent {
 	configuration = ""
 	// configuration = JSON_DATA;
 	downloadLink!: SafeValue;
+	private fileService!: ConfigFileService;
 
 	name = '&eRusty &a&lHa&rm&kmer';
 	lore: string[] = ['&7Damage: 12', '&7Defe&mnse: 12', '&#123456789abcdef'];
@@ -21,7 +26,7 @@ export class EditorComponent {
 		throw new Error('Method not implemented.');
 	}
 
-	constructor(private sanitizer: DomSanitizer) {}
+	constructor(private sanitizer: DomSanitizer, private factory: FileServiceFactory) {}
 
 	updateDownloadLink() {
 		// TODO parse config to file
@@ -36,6 +41,7 @@ export class EditorComponent {
 		}
 
 		this.readFile(input.files[0]);
+		this.fileService = this.factory.create(ConfigType.JSON);
 	}
 
 	readFile(file: File) {

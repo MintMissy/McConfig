@@ -5,6 +5,7 @@ import { ConfigNestedNodeComponent } from './ui/config-nested-node/config-nested
 import { ConfigNodeComponent } from './ui/config-node/config-node.component';
 import { ConfigNodeHeaderComponent } from './ui/config-node-header/config-node-header.component';
 import { ConfigTreeComponent } from './feature/config-tree/config-tree.component';
+import { FileServiceFactory } from './service/file-service-factory.service';
 import { FormsModule } from '@angular/forms';
 import { LastPathKeyPipe } from './pipe/path/last-path-key.pipe';
 import { MinecraftModule } from '../minecraft/minecraft.module';
