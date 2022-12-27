@@ -9,8 +9,8 @@ import { SafeValue } from '@angular/platform-browser';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EditorHeaderComponent {
-  @Input() fileName = '';
-  @Input() downloadLink!: SafeValue;
+  @Input() fileName!: string | null;
+  @Input() downloadLink!: SafeValue | null;
 
   @Output() delete = new EventEmitter<void>();
 }

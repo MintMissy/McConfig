@@ -1,6 +1,6 @@
 import { Injectable, Injector } from '@angular/core';
 
-import { ConfigFileService } from './config-file-service.interface';
+import { ConfigFileService } from './config-file-service.class';
 import { ConfigModule } from '../config.module';
 import { ConfigType } from '../enums/config-type.enum';
 import { JsonFileService } from './json-file.service';

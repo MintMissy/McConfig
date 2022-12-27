@@ -3,12 +3,14 @@
 <!-- <app-material-input></app-material-input> -->
 
 <div class="shadow-lg rounded-md overflow-hidden">
-  <app-editor-header [fileName]="fileName" [downloadLink]="downloadLink" (delete)="onDelete()"></app-editor-header>
-  <div class="bg-dark-800 p-3">
-    <app-config-tree 
-    [fileExtension]="fileName.split('.').pop()!"
-    [configuration]="configuration"></app-config-tree>
-  </div>
+	<app-editor-header
+		[fileName]="fileName$ | async"
+		[downloadLink]="downloadLink$ | async"
+		(delete)="onRemove()"
+	></app-editor-header>
+	<div class="bg-dark-800 p-3">
+		<app-config-tree [configSection]="configuration$ | async"></app-config-tree>
+	</div>
 </div>
 <label for="sth">Upload</label>
 <input id="sth" type="file" (change)="fileChanged($event)" />

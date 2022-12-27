@@ -1,13 +1,16 @@
-import { ConfigFileService } from './config-file-service.interface';
+import { ConfigFileService, SerializationCallback } from './config-file-service.class';
+
 import { ConfigModule } from '../config.module';
 import { Injectable } from '@angular/core';
 
 @Injectable({
 	providedIn: ConfigModule,
 })
-export class JsonFileService implements ConfigFileService {
-	serialize(configuration: string): Record<string | number, any> {
-		return JSON.parse(configuration);
+export class JsonFileService extends ConfigFileService {
+	serialize(file: File, callback: SerializationCallback): void {
+		this.readFile(file, (fileContent: string) => {
+			callback({ configuration: JSON.parse(fileContent), fileContent: fileContent });
+		})
 	}
 
 	deserialize(configuration: Record<string | number, any>): string {
