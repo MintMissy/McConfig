@@ -14,4 +14,12 @@ export class ConfigNestedNodeComponent {
 
 	@Output() expandToggle = new EventEmitter<{ path: string }>();
 	@Output() valueChange = new EventEmitter<{ path: string; value: any }>();
+
+	trackEntry(index: number, entry: {key: string | number, value: any}) {
+		return entry ? entry.key : undefined;
+	}
+
+	ngOnChanges(changes: SimpleChanges): void {
+		console.log(changes);
+	}
 }

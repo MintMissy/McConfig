@@ -1,6 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
-import { ConfigTreeComponent } from 'src/app/config/feature/config-tree/config-tree.component';
 import { ConfigType } from 'src/app/config/enums/config-type.enum';
 import { EditorStore } from './editor.store';
 

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 
 import { ConfigTreeStore } from './config-tree.store';
 
@@ -12,7 +12,7 @@ import { ConfigTreeStore } from './config-tree.store';
 export class ConfigTreeComponent implements OnInit {
 	@Input() configSection: Record<string | number, any> | null = {};
 
-	@Output() valueChange = new EventEmitter<{path: string, value: any}>();
+	@Output() valueChange = new EventEmitter<{ path: string; value: any }>();
 
 	expandedPaths$ = this.componentStore.expandedPaths$;
 
@@ -21,7 +21,7 @@ export class ConfigTreeComponent implements OnInit {
 	ngOnInit(): void {
 		this.componentStore.setState({ expandedPaths: {} });
 	}
-	
+
 	onSectionExpand($event: { path: string }) {
 		this.componentStore.toggleExpand($event.path);
 	}
