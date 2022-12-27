@@ -10,7 +10,7 @@ export class JsonFileService extends ConfigFileService {
 	serialize(file: File, callback: SerializationCallback): void {
 		this.readFile(file, (fileContent: string) => {
 			callback({ configuration: JSON.parse(fileContent), fileContent: fileContent });
-		})
+		});
 	}
 
 	deserialize(configuration: Record<string | number, any>): string {

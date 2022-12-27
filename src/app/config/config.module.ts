@@ -5,7 +5,6 @@ import { ConfigNestedNodeComponent } from './ui/config-nested-node/config-nested
 import { ConfigNodeComponent } from './ui/config-node/config-node.component';
 import { ConfigNodeHeaderComponent } from './ui/config-node-header/config-node-header.component';
 import { ConfigTreeComponent } from './feature/config-tree/config-tree.component';
-import { FileServiceFactory } from './service/file-service-factory.service';
 import { FormsModule } from '@angular/forms';
 import { LastPathKeyPipe } from './pipe/path/last-path-key.pipe';
 import { MinecraftModule } from '../minecraft/minecraft.module';
@@ -14,26 +13,26 @@ import { SharedModule } from '../shared/shared.module';
 import { TypeIconPipe } from './pipe/type-icon.pipe';
 
 @NgModule({
-  imports: [CommonModule, SharedModule, FormsModule, MinecraftModule],
-  declarations: [
-    ConfigFieldComponent,
-    ConfigNodeHeaderComponent,
-    ConfigTreeComponent,
-    ConfigNodeComponent,
-    ConfigNestedNodeComponent,
-    LastPathKeyPipe,
-    CombinePathPipe,
-    TypeIconPipe,
-  ],
-  exports: [
-    ConfigFieldComponent,
-    ConfigNodeHeaderComponent,
-    ConfigTreeComponent,
-    ConfigNodeComponent,
-    ConfigNestedNodeComponent,
-    LastPathKeyPipe,
-    CombinePathPipe,
-    TypeIconPipe,
-  ],
+	imports: [CommonModule, SharedModule, FormsModule, MinecraftModule],
+	declarations: [
+		ConfigFieldComponent,
+		ConfigNodeHeaderComponent,
+		ConfigTreeComponent,
+		ConfigNodeComponent,
+		ConfigNestedNodeComponent,
+		LastPathKeyPipe,
+		CombinePathPipe,
+		TypeIconPipe,
+	],
+	exports: [
+		ConfigFieldComponent,
+		ConfigNodeHeaderComponent,
+		ConfigTreeComponent,
+		ConfigNodeComponent,
+		ConfigNestedNodeComponent,
+		LastPathKeyPipe,
+		CombinePathPipe,
+		TypeIconPipe,
+	],
 })
 export class ConfigModule {}

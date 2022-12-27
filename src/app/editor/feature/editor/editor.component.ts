@@ -33,10 +33,10 @@ export class EditorComponent implements OnInit {
 		if (input === null || input.files === null) {
 			return;
 		}
-		
-		this.store.uploadFile(input.files[0])
-	}
 
+		this.store.uploadFile(input.files[0]);
+	}
+	
 	onRemove() {
 		this.store.removeFile();
 	}

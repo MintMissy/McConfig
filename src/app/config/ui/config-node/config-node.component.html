@@ -18,16 +18,16 @@
 		></app-number-input>
 		<ng-container *ngSwitchCase="'string'">
 			<app-material-input
-				*ngIf="value && ['material', 'type'].includes(path | lastPathKey) else defaultStringInput"
+				*ngIf="value && ['material', 'type'].includes(path | lastPathKey); else defaultStringInput"
 				[value]="value"
 				(valueChange)="valueChange.emit({ path: path, value: $event })"
 			></app-material-input>
-      <ng-template #defaultStringInput>
-			<app-string-input
-				[value]="value"
-				(valueChange)="valueChange.emit({ path: path, value: $event })"
-			></app-string-input>
-    </ng-template>
+			<ng-template #defaultStringInput>
+				<app-string-input
+					[value]="value"
+					(valueChange)="valueChange.emit({ path: path, value: $event })"
+				></app-string-input>
+			</ng-template>
 		</ng-container>
 	</div>
 	<mat-icon class="block mx-2 leading-7" [style]="{ fontSize: iconSize, height: iconSize }">

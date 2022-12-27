@@ -1,28 +1,28 @@
 <ng-container *ngIf="root || (expandedPaths && expandedPaths[path])">
-  <div *ngFor="let entry of configEntries | entries" [ngClass]="root ? '' : 'pl-6 border-l-2 border-dark-700/50'">
-    <!-- Field (String, Number, Boolean) -->
-    <app-config-node
-      *ngIf="(entry.value | typeOf) !== 'object'; else nestedNode"
-      [path]="entry.key | combinePath : path : root"
-      [value]="entry.value"
-      (valueChange)="valueChange.emit($event)"
-    ></app-config-node>
-    <!-- Nested Node (Object, Array) -->
-    <ng-template #nestedNode>
-      <div>
-        <app-config-node-header
-          [path]="entry.key | combinePath : path : root"
-          [expanded]="!!(expandedPaths && expandedPaths[entry.key | combinePath : path : root])"
-          (expandToggle)="expandToggle.emit($event)"
-        ></app-config-node-header>
-        <app-config-nested-node
-          [path]="entry.key | combinePath : path : root"
-          [configEntries]="entry.value"
-          [expandedPaths]="expandedPaths"
-          (expandToggle)="expandToggle.emit($event)"
-          (valueChange)="valueChange.emit($event)"
-        ></app-config-nested-node>
-      </div>
-    </ng-template>
-  </div>
+	<div *ngFor="let entry of configEntries | entries" [ngClass]="root ? '' : 'pl-6 border-l-2 border-dark-700/50'">
+		<!-- Field (String, Number, Boolean) -->
+		<app-config-node
+			*ngIf="(entry.value | typeOf) !== 'object'; else nestedNode"
+			[path]="entry.key | combinePath : path : root"
+			[value]="entry.value"
+			(valueChange)="valueChange.emit($event)"
+		></app-config-node>
+		<!-- Nested Node (Object, Array) -->
+		<ng-template #nestedNode>
+			<div>
+				<app-config-node-header
+					[path]="entry.key | combinePath : path : root"
+					[expanded]="!!(expandedPaths && expandedPaths[entry.key | combinePath : path : root])"
+					(expandToggle)="expandToggle.emit($event)"
+				></app-config-node-header>
+				<app-config-nested-node
+					[path]="entry.key | combinePath : path : root"
+					[configEntries]="entry.value"
+					[expandedPaths]="expandedPaths"
+					(expandToggle)="expandToggle.emit($event)"
+					(valueChange)="valueChange.emit($event)"
+				></app-config-nested-node>
+			</div>
+		</ng-template>
+	</div>
 </ng-container>

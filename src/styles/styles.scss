@@ -4,15 +4,15 @@
 
 // Define a dark theme
 $dark-theme: mat.define-dark-theme(
-  (
-    color: (
-      primary: mat.define-palette(mat.$pink-palette),
-      accent: mat.define-palette(mat.$blue-grey-palette),
-    ),
-    // Only include `typography` and `density` in the default dark theme.
-    typography: mat.define-typography-config(),
-    density: 0,
-  )
+	(
+		color: (
+			primary: mat.define-palette(mat.$pink-palette),
+			accent: mat.define-palette(mat.$blue-grey-palette),
+		),
+		// Only include `typography` and `density` in the default dark theme.
+		typography: mat.define-typography-config(),
+		density: 0,
+	)
 );
 
 // Apply the dark theme by default
@@ -23,9 +23,9 @@ $dark-theme: mat.define-dark-theme(
 @import "material-reset";
 
 .minecraft-font {
-  font-family: "MinecraftiaRegular";
-  font-weight: normal;
-  font-style: normal;
+	font-family: "MinecraftiaRegular";
+	font-weight: normal;
+	font-style: normal;
 }
 
 @import "components";

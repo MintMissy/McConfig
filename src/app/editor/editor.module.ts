@@ -9,7 +9,7 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [EditorComponent, EditorHeaderComponent],
-  imports: [CommonModule, EditorRoutingModule, SharedModule, FormsModule, MinecraftModule, ConfigModule],
+	declarations: [EditorComponent, EditorHeaderComponent],
+	imports: [CommonModule, EditorRoutingModule, SharedModule, FormsModule, MinecraftModule, ConfigModule],
 })
 export class EditorModule {}

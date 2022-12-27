@@ -1,12 +1,13 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  template: '',
+	template: '',
 })
 export abstract class BaseInputComponent<T> {
-  @Input() value!: T;
+	@Input() value!: T;
 
-  @Output() valueChange = new EventEmitter<T>();
+	@Output() valueChange = new EventEmitter<T>();
 
-  abstract onValueChange(value?: any): void;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	abstract onValueChange(value?: any): void;
 }

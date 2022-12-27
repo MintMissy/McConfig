@@ -1,4 +1,7 @@
-export type SerializationCallback = (data: { configuration: Record<string | number, any>; fileContent: string }) => void;
+export type SerializationCallback = (data: {
+	configuration: Record<string | number, any>;
+	fileContent: string;
+}) => void;
 
 export abstract class ConfigFileService {
 	abstract serialize(file: File, callback: SerializationCallback): void;

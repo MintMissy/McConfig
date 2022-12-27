@@ -7,8 +7,8 @@ import { NgModule } from '@angular/core';
 const routes: Routes = [{ path: '', component: EditorComponent }];
 
 @NgModule({
-  declarations: [],
-  imports: [CommonModule, RouterModule.forChild(routes)],
-  exports: [RouterModule],
+	declarations: [],
+	imports: [CommonModule, RouterModule.forChild(routes)],
+	exports: [RouterModule],
 })
 export class EditorRoutingModule {}

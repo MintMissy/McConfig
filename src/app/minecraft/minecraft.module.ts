@@ -11,24 +11,24 @@ import { SharedModule } from '../shared/shared.module';
 import { IsMaterialPipe } from './pipe/is-material.pipe';
 
 @NgModule({
-  imports: [CommonModule, SharedModule, FormsModule],
-  declarations: [
-    MinecraftTextPreviewComponent,
-    MaterialInputComponent,
-    MinecraftTextDirective,
-    MiniMessagePipe,
-    ColorCodePipe,
-    HexColorCodePipe,
-    IsMaterialPipe,
-  ],
-  exports: [
-    MinecraftTextPreviewComponent,
-    MaterialInputComponent,
-    MinecraftTextDirective,
-    MiniMessagePipe,
-    ColorCodePipe,
-    HexColorCodePipe,
-    IsMaterialPipe,
-  ],
+	imports: [CommonModule, SharedModule, FormsModule],
+	declarations: [
+		MinecraftTextPreviewComponent,
+		MaterialInputComponent,
+		MinecraftTextDirective,
+		MiniMessagePipe,
+		ColorCodePipe,
+		HexColorCodePipe,
+		IsMaterialPipe,
+	],
+	exports: [
+		MinecraftTextPreviewComponent,
+		MaterialInputComponent,
+		MinecraftTextDirective,
+		MiniMessagePipe,
+		ColorCodePipe,
+		HexColorCodePipe,
+		IsMaterialPipe,
+	],
 })
 export class MinecraftModule {}

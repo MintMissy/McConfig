@@ -3,7 +3,7 @@
 		padding-block: 0 !important;
 	}
 
-	.mdc-list-item__primary-text{
+	.mdc-list-item__primary-text {
 		width: 100% !important;
 	}
 
@@ -15,7 +15,8 @@
 		width: 100%;
 	}
 
-	.mdc-list-item--selected .mdc-list-item__primary-text, .mdc-list-item--activated .mdc-list-item__primary-text{
+	.mdc-list-item--selected .mdc-list-item__primary-text,
+	.mdc-list-item--activated .mdc-list-item__primary-text {
 		color: theme("colors.primary.400") !important;
 	}
 }
