@@ -1,5 +1,6 @@
+import * as YAML from 'js-yaml';
+
 import { ConfigFileService, SerializationCallback } from './config-file-service.class';
-import { parse, stringify } from 'yamljs';
 
 import { ConfigModule } from '../config.module';
 import { Injectable } from '@angular/core';
@@ -10,11 +11,11 @@ import { Injectable } from '@angular/core';
 export class YamlFileService extends ConfigFileService {
 	serialize(file: File, callback: SerializationCallback): void {
 		this.readFile(file, (fileContent: string) => {
-			callback({ configuration: parse(fileContent), fileContent: fileContent });
+						callback({ configuration: YAML.load(fileContent)!, fileContent: fileContent });
 		});
 	}
 
 	deserialize(configuration: Record<string | number, any>): string {
-		return stringify(configuration, 0, 2);
+		return YAML.dump(configuration);
 	}
 }

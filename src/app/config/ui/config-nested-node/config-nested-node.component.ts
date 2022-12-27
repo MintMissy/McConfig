@@ -18,8 +18,4 @@ export class ConfigNestedNodeComponent {
 	trackEntry(index: number, entry: { key: string | number; value: any }) {
 		return entry ? entry.key : undefined;
 	}
-
-	ngOnChanges(changes: SimpleChanges): void {
-		console.log(changes);
-	}
 }

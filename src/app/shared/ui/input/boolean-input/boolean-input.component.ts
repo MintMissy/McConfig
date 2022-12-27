@@ -11,5 +11,6 @@ import { BaseInputComponent } from '../base-input.component';
 export class BooleanInputComponent extends BaseInputComponent<boolean> {
 	onValueChange(): void {
 		this.valueChange.emit(!this.value);
+		this.value = !this.value;
 	}
 }

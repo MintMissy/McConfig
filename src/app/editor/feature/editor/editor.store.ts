@@ -30,7 +30,12 @@ export class EditorStore extends ComponentStore<EditorState> {
 
 	editValue(change: { path: string; value: any }) {
 		this.patchState((state) => {
-			return { ...state, configuration: setValue({ ...state.configuration }, change.path, change.value) };
+			const newConfiguration = setValue({ ...state.configuration }, change.path, change.value);
+			return {
+				...state,
+				configuration: newConfiguration,
+				downloadLink: this.getDownloadUrl(this.fileService.deserialize(newConfiguration)),
+			};
 		});
 	}
 
