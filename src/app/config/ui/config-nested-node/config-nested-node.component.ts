@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
 	selector: 'app-config-nested-node',
@@ -17,7 +17,7 @@ export class ConfigNestedNodeComponent {
 	@Output() remove = new EventEmitter<string>();
 	@Output() clone = new EventEmitter<string>();
 	@Output() valueChange = new EventEmitter<{ path: string; value: any }>();
-	@Output() keyChange = new EventEmitter<{path: string; newKey: string}>();
+	@Output() keyChange = new EventEmitter<{ path: string; newKey: string }>();
 
 	trackEntry(index: number, entry: { key: string | number; value: any }) {
 		return entry ? entry.key : undefined;

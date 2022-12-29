@@ -1,3 +1,5 @@
+import { isStringifiedNumber } from "../pipe/is-stringified-number.pipe";
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export function setNestedValue(object: Record<string | number, any>, path: string, value: any) {
 	const temp = getNestedValue(object, path, 2);
@@ -11,8 +13,9 @@ export function cloneNestedValue(object: Record<string | number, any>, path: str
 
 	const temp = getNestedValue(object, path, 2);
 	let newKey: string | number;
-	if (typeof temp[lastKeyInPath] == 'number') {
-		newKey = Object.values(lastKeyInPath).length;
+
+	if (isStringifiedNumber(lastKeyInPath)) {
+		newKey = Object.values(temp).length;
 		temp[newKey] = cloneDeep(temp[lastKeyInPath]);
 	} else {
 		newKey = lastKeyInPath + 'Clone';

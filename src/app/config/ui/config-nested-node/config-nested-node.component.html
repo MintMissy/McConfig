@@ -29,6 +29,9 @@
 				[expandedPaths]="expandedPaths"
 				(expandToggle)="expandToggle.emit($event)"
 				(valueChange)="valueChange.emit($event)"
+				(keyChange)="keyChange.emit($event)"
+				(remove)="remove.emit($event)"
+				(clone)="clone.emit($event)"
 			></app-config-nested-node>
 		</ng-template>
 	</div>
