@@ -6,6 +6,7 @@ import { ConfigFileService } from 'src/app/config/service/config-file-service.cl
 import { FileServiceFactory } from 'src/app/config/service/file-service-factory.service';
 import { Injectable } from '@angular/core';
 import {
+	cloneDeep,
 	cloneNestedValue,
 	getNestedValue,
 	removeNestedKey,
@@ -36,7 +37,7 @@ export class EditorStore extends ComponentStore<EditorState> {
 
 	editValue(change: { path: string; value: any }) {
 		this.patchState((state) => {
-			const newConfiguration = setNestedValue({ ...state.configuration }, change.path, change.value);
+			const newConfiguration = cloneDeep(setNestedValue({ ...state.configuration }, change.path, change.value));
 			return {
 				...state,
 				configuration: newConfiguration,
@@ -62,7 +63,7 @@ export class EditorStore extends ComponentStore<EditorState> {
 
 	addSubKey($event: string) {
 		this.patchState((state) => {
-			const newConfiguration = setNestedValue({ ...state.configuration }, $event + '.newKey', '');
+			const newConfiguration = cloneDeep(setNestedValue({ ...state.configuration }, $event + '.newKey', ''));
 			return {
 				...state,
 				configuration: newConfiguration,
@@ -73,7 +74,7 @@ export class EditorStore extends ComponentStore<EditorState> {
 
 	renameKey(path: string, newName: string) {
 		this.patchState((state) => {
-			const newConfiguration = renameNestedKey({ ...state.configuration }, path, newName);
+			const newConfiguration = cloneDeep(renameNestedKey({ ...state.configuration }, path, newName));
 			return {
 				...state,
 				configuration: newConfiguration,
@@ -84,7 +85,7 @@ export class EditorStore extends ComponentStore<EditorState> {
 
 	removeKey(path: string) {
 		this.patchState((state) => {
-			const newConfiguration = removeNestedKey({ ...state.configuration }, path);
+			const newConfiguration = cloneDeep(removeNestedKey({ ...state.configuration }, path));
 			return {
 				...state,
 				configuration: newConfiguration,
@@ -95,7 +96,7 @@ export class EditorStore extends ComponentStore<EditorState> {
 
 	cloneKey(path: string) {
 		this.patchState((state) => {
-			const newConfiguration = cloneNestedValue({ ...state.configuration }, path);
+			const newConfiguration = cloneDeep(cloneNestedValue({ ...state.configuration }, path));
 			return {
 				...state,
 				configuration: newConfiguration,

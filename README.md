@@ -1,9 +1,14 @@
+# Bugs
+[ ] Adding new key sometimes doesn't work (seems to be bugged only for deeply nested objects - 2 levels at least)
+
 # Ideas 
 [ ] Responsiveness
-[ ] Add new key
-[ ] Edit existing key
+[X] Update bug
+[X] Add new key
+[X] Edit existing key
 [ ] Change field type
-[ ] Clone object in lists
+[X] Clone object in lists
 [ ] Code editor
 [ ] Saving method option - json/yaml
 [ ] Switching between code & gui editor
+[ ] Filter option
