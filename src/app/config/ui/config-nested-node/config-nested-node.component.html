@@ -9,6 +9,9 @@
 			[path]="entry.key | combinePath : path : root"
 			[value]="entry.value"
 			(valueChange)="valueChange.emit($event)"
+			(keyChange)="keyChange.emit($event)"
+			(clone)="clone.emit($event)"
+			(remove)="remove.emit($event)"
 		></app-config-node>
 		<!-- Nested Node (Object, Array) -->
 		<ng-template #nestedNode>

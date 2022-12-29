@@ -1,29 +1,63 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-export function setValue(object: Record<string | number, any>, path: string, value: any) {
-	const clone = getSubValue(object, path);
-	clone[getLastKey(path)] = value;
-	
+export function setNestedValue(object: Record<string | number, any>, path: string, value: any) {
+	const temp = getNestedValue(object, path, 2);
+	temp[getLastKey(path)] = value;
+
 	return object;
 }
 
-export function removeKey(object: Record<string | number, any>, path: string) {
-	const clone = getSubValue(object, path);
-	delete clone[getLastKey(path)];
+export function cloneNestedValue(object: Record<string | number, any>, path: string) {
+	const lastKeyInPath = getLastKey(path);
 
-	return clone;
-}
+	const temp = getNestedValue(object, path, 2);
+	let newKey: string | number;
+	if (typeof temp[lastKeyInPath] == 'number') {
+		newKey = Object.values(lastKeyInPath).length;
+		temp[newKey] = cloneDeep(temp[lastKeyInPath]);
+	} else {
+		newKey = lastKeyInPath + 'Clone';
 
-export function getSubValue(object: Record<string | number, any>, path: string) {
-	const keys = path.split('.');
-	let clone = object;
-	while (keys.length > 1) {
-		clone = clone[keys.shift()!];
+		if (newKey in temp) {
+			newKey = newKey + '-' + Object.values(temp).length;
+		}
+		temp[newKey] = temp[lastKeyInPath];
 	}
 
-	return clone[keys.shift()!];
+	return object;
 }
 
-function getLastKey(path: string) {
-	return path.split('.').pop()!;
+export function removeNestedKey(object: Record<string | number, any>, path: string) {
+	const temp = getNestedValue(object, path, 2);
+	delete temp[getLastKey(path)];
+
+	return object;
+}
+
+export function renameNestedKey(object: Record<string | number, any>, path: string, newKey: string) {
+	const temp = getNestedValue(object, path, 2);
+	temp[newKey] = temp[getLastKey(path)];
+	delete temp[getLastKey(path)];
+
+	return object;
+}
+
+export function getNestedValue(object: Record<string | number, any>, path: string, levelFromEnd = 1) {
+	const keys = path.split('.');
+	if (keys.length === 1) return object;
+
+	let temp = object;
+	while (keys.length > levelFromEnd) {
+		temp = temp[keys.shift()!];
+	}
+
+	return temp[keys.shift()!];
+}
+
+function getLastKey(path: string): string {
+	const lastKey = path.split('.').pop();
+	return lastKey == null ? path : lastKey;
+}
+
+export function cloneDeep(object: Record<string | number, any>) {
+	return JSON.parse(JSON.stringify(object));
 }

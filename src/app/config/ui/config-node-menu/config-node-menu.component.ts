@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-config-node-menu',
@@ -7,6 +7,9 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angul
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ConfigNodeMenuComponent {
+  @Input() hasAddSubKeyOption = true;
+	@Input() iconSize = '20px';
+
   @Output() clone = new EventEmitter<void>();
   @Output() remove = new EventEmitter<void>();
   @Output() addSubKey = new EventEmitter<void>();

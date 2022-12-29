@@ -1,17 +1,17 @@
-<div class="h-13 group my-1 flex cursor-pointer rounded-md bg-dark-700 py-2 leading-5 hover:bg-dark-600">
+<div class="h-13 group my-1 flex rounded-md bg-dark-700 py-2 leading-5 hover:bg-dark-600">
 	<mat-icon
-		class="mx-2"
+		class="mx-2 cursor-pointer"
 		[style]="{ fontSize: '1.25rem', height: '1.25rem' }"
 		(click)="expandToggle.emit({ path: path })"
 	>
 		{{ expanded ? "expand_more" : "chevron_right" }}
 	</mat-icon>
-	<h3 class="font-medium">{{ path | lastPathKey }}</h3>
-	<div class="ml-auto hidden h-4 group-hover:block">
+	<h3 class="font-medium cursor-pointer" (click)="expandToggle.emit({ path: path })">{{ path | lastPathKey }}</h3>
+	<div class="ml-auto hidden h-5 group-hover:block">
 		<app-config-node-menu
-		(addSubKey)="addSubKey.emit(path)"
-		(remove)="remove.emit(path)"
-		(clone)="clone.emit(path)"
+			(addSubKey)="addSubKey.emit(path)"
+			(remove)="remove.emit(path)"
+			(clone)="clone.emit(path)"
 		></app-config-node-menu>
 	</div>
 </div>

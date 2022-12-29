@@ -65,15 +65,19 @@ export class EditorComponent implements OnInit {
 		this.store.editValue($event);
 	}
 
+	onKeyChange($event: { path: string; newKey: string }) {
+		this.store.renameKey($event.path, $event.newKey);
+	}
+
 	onKeyClone(path: string) {
-		this.store.cloneKey(path)
+		this.store.cloneKey(path);
 	}
 
 	onKeyRemove(path: string) {
-		this.store.removeKey(path)
+		this.store.removeKey(path);
 	}
 
 	onAddSubKey($event: string) {
-		this.store.addSubKey($event)
+		this.store.addSubKey($event);
 	}
 }

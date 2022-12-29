@@ -9,7 +9,6 @@ import { LastPathKeyPipe } from './pipe/path/last-path-key.pipe';
 import { MinecraftModule } from '../minecraft/minecraft.module';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
-import { TypeIconPipe } from './pipe/type-icon.pipe';
 import { ConfigNodeMenuComponent } from './ui/config-node-menu/config-node-menu.component';
 
 @NgModule({
@@ -21,7 +20,6 @@ import { ConfigNodeMenuComponent } from './ui/config-node-menu/config-node-menu.
 		ConfigNestedNodeComponent,
 		LastPathKeyPipe,
 		CombinePathPipe,
-		TypeIconPipe,
   ConfigNodeMenuComponent,
 	],
 	exports: [
@@ -31,7 +29,6 @@ import { ConfigNodeMenuComponent } from './ui/config-node-menu/config-node-menu.
 		ConfigNestedNodeComponent,
 		LastPathKeyPipe,
 		CombinePathPipe,
-		TypeIconPipe,
 	],
 })
 export class ConfigModule {}

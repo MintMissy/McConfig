@@ -16,6 +16,7 @@ export class ConfigTreeComponent implements OnInit {
 	@Output() addSubKey = new EventEmitter<string>();
 	@Output() clone = new EventEmitter<string>();
 	@Output() remove = new EventEmitter<string>();
+	@Output() keyChange = new EventEmitter<{path: string; newKey: string}>();
 
 	expandedPaths$ = this.componentStore.expandedPaths$;
 

@@ -18,6 +18,7 @@ import { StringInputComponent } from './ui/input/string-input/string-input.compo
 import { TypeOfPipe } from './pipe/type-of.pipe';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatMenuModule} from '@angular/material/menu';
+import { IsStringifiedNumberPipe } from './pipe/is-stringified-number.pipe';
 @NgModule({
 	declarations: [
 		NavbarComponent,
@@ -29,6 +30,7 @@ import {MatMenuModule} from '@angular/material/menu';
 		StringInputComponent,
 		NumberInputComponent,
 		FileInputComponent,
+  IsStringifiedNumberPipe,
 
 	],
 	exports: [
@@ -46,7 +48,8 @@ import {MatMenuModule} from '@angular/material/menu';
 		NumberInputComponent,
 		FileInputComponent,
 		MatTooltipModule,
-		MatMenuModule
+		MatMenuModule,
+  IsStringifiedNumberPipe
 	],
 	imports: [
 		CommonModule,
