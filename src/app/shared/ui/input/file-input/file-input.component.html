@@ -1,8 +1,0 @@
-<label
-	[ngClass]="classes"
-	class="flex cursor-pointer items-center justify-between gap-2 rounded-md bg-primary-800 py-1 pl-2 pt-[6px] pr-3 hover:bg-primary-500"
->
-	<mat-icon class="text-[20px]">{{ icon }}</mat-icon>
-	<span class="text-base font-medium">{{ text }}</span>
-	<input (input)="fileUpload.emit($event)" type="file" aria-hidden="true" class="invisible h-0 w-0" [accept]="accept" />
-</label>
