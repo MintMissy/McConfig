@@ -40,6 +40,11 @@ export function cloneNestedValue(object: Record<string | number, any>, path: str
 }
 
 export function removeNestedKey(object: Record<string | number, any>, path: string) {
+	if (path.split('.').length === 1) {
+		delete object[path];
+		return object;
+	}
+
 	const temp = getNestedValue(object, path, 2);
 	delete temp[getLastKey(path)];
 
@@ -47,6 +52,12 @@ export function removeNestedKey(object: Record<string | number, any>, path: stri
 }
 
 export function renameNestedKey(object: Record<string | number, any>, path: string, newKey: string) {
+	if (path.split('.').length === 1) {
+		object[newKey] = object[path];
+		delete object[path];
+		return object;
+	}
+
 	const temp = getNestedValue(object, path, 2);
 	temp[newKey] = temp[getLastKey(path)];
 	delete temp[getLastKey(path)];
