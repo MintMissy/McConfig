@@ -10,8 +10,7 @@
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
-  <a href="#deployed-app">Deployed App</a> •
-  <a href="#screen-shots">Application Preview</a>
+  <a href="#deployed-app">Deployed App</a>
 </p>
 
 ![application screenshot](docs/preview.png)
