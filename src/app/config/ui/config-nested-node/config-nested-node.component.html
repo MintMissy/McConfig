@@ -39,4 +39,9 @@
 			></app-config-nested-node>
 		</ng-template>
 	</div>
+	<app-minecraft-text-preview
+		*ngIf="(path | lastPathKey) === 'meta' && configEntries !== null"
+		[itemName]="configEntries['display-name']"
+		[lore]="configEntries['lore']"
+	></app-minecraft-text-preview>
 </ng-container>
