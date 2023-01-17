@@ -53,4 +53,22 @@ export class EditorComponent {
 		const file = new File([JSON.stringify(exampleConfig)], 'example_configuration.json', { type: 'text/plain' });
 		this.store.uploadFile(file);
 	}
+
+	onChangeType($event: { path: string; type: string }) {
+		let newValue: any;
+		const type = $event.type;
+		if (type === 'number') {
+			newValue = 0;
+		} else if (type === 'string') {
+			newValue = '';
+		} else if (type === 'boolean') {
+			newValue = true;
+		} else if (type === 'array') {
+			newValue = [];
+		} else if (type === 'object') {
+			newValue = {};
+		}
+
+		this.store.editValue({ path: $event.path, value: newValue });
+	}
 }

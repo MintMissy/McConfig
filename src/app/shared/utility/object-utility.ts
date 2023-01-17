@@ -2,6 +2,11 @@ import { isStringifiedNumber } from '../pipe/is-stringified-number.pipe';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export function setNestedValue(object: Record<string | number, any>, path: string, value: any) {
+	if (path.split('.').length === 1) {
+		object[path] = value;
+		return object;
+	}
+
 	const temp = getNestedValue(object, path, 2);
 	temp[getLastKey(path)] = value;
 

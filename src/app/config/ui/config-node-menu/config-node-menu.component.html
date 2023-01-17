@@ -1,5 +1,5 @@
-<button [matMenuTriggerFor]="menu" class="px-2 h-full flex items-center">
-	<mat-icon class="block" [ngStyle]="{ fontSize: iconSize}">more_vert</mat-icon>
+<button [matMenuTriggerFor]="menu" class="flex h-full items-center px-2">
+	<mat-icon class="block" [ngStyle]="{ fontSize: iconSize }">more_vert</mat-icon>
 </button>
 <mat-menu #menu="matMenu">
 	<button mat-menu-item (click)="clone.emit()">
@@ -10,5 +10,20 @@
 	</button>
 	<button *ngIf="hasAddSubKeyOption" mat-menu-item (click)="addSubKey.emit()">
 		<span class="menu-item">Add Sub-Key</span>
+	</button>
+	<button mat-menu-item (click)="changeType.emit('number')">
+		<span class="menu-item">Convert to Number</span>
+	</button>
+	<button mat-menu-item (click)="changeType.emit('boolean')">
+		<span class="menu-item">Convert to Boolean</span>
+	</button>
+	<button mat-menu-item (click)="changeType.emit('string')">
+		<span class="menu-item">Convert to String</span>
+	</button>
+	<button mat-menu-item (click)="changeType.emit('array')">
+		<span class="menu-item">Convert to List</span>
+	</button>
+	<button mat-menu-item (click)="changeType.emit('object')">
+		<span class="menu-item">Convert to Object</span>
 	</button>
 </mat-menu>

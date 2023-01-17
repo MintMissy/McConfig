@@ -39,6 +39,7 @@
 			[hasAddSubKeyOption]="false"
 			(remove)="remove.emit(path)"
 			(clone)="clone.emit(path)"
+			(changeType)="changeType.emit({ path: path, type: $event })"
 			class="block h-full"
 		></app-config-node-menu>
 	</div>

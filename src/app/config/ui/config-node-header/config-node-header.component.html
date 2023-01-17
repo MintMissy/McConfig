@@ -12,6 +12,7 @@
 			(addSubKey)="onAddSubKey(path)"
 			(remove)="remove.emit(path)"
 			(clone)="clone.emit(path)"
+			(changeType)="changeType.emit({ path: path, type: $event })"
 		></app-config-node-menu>
 	</div>
 </div>

@@ -12,6 +12,7 @@
 			(keyChange)="keyChange.emit($event)"
 			(clone)="clone.emit($event)"
 			(remove)="remove.emit($event)"
+			(changeType)="onChangeType($event)"
 		></app-config-node>
 		<!-- Nested Node (Object, Array) -->
 		<ng-template #nestedNode>
@@ -20,6 +21,7 @@
 				[expanded]="!!(expandedPaths && expandedPaths[entry.key | combinePath : path : root])"
 				(expandToggle)="expandToggle.emit($event)"
 				(addSubKey)="onAddSubKey($event)"
+				(changeType)="onChangeType($event)"
 				(remove)="remove.emit($event)"
 				(clone)="clone.emit($event)"
 			></app-config-node-header>
@@ -30,6 +32,7 @@
 				(addSubKey)="onAddSubKey($event)"
 				(expandToggle)="expandToggle.emit($event)"
 				(valueChange)="valueChange.emit($event)"
+				(changeType)="onChangeType($event)"
 				(keyChange)="keyChange.emit($event)"
 				(remove)="remove.emit($event)"
 				(clone)="clone.emit($event)"

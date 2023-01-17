@@ -17,6 +17,7 @@ export class ConfigNodeComponent implements OnInit {
 
 	@Output() keyChange = new EventEmitter<{ path: string; newKey: string }>();
 	@Output() valueChange = new EventEmitter<{ path: string; value: any }>();
+	@Output() changeType = new EventEmitter<{path: string, type: string}>();
 	@Output() remove = new EventEmitter<string>();
 	@Output() clone = new EventEmitter<string>();
 

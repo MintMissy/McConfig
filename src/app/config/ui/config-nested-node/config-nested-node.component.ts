@@ -18,6 +18,7 @@ export class ConfigNestedNodeComponent {
 	@Output() clone = new EventEmitter<string>();
 	@Output() valueChange = new EventEmitter<{ path: string; value: any }>();
 	@Output() keyChange = new EventEmitter<{ path: string; newKey: string }>();
+	@Output() changeType = new EventEmitter<{ path: string; type: string }>();
 
 	trackEntry(index: number, entry: { key: string | number; value: any }) {
 		return entry ? entry.key : undefined;
@@ -25,5 +26,9 @@ export class ConfigNestedNodeComponent {
 
 	onAddSubKey(path: string) {
 		this.addSubKey.emit(path);
+	}
+
+	onChangeType($event: { path: string; type: string }) {
+		this.changeType.emit($event);
 	}
 }

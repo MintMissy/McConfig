@@ -17,6 +17,7 @@ export class ConfigTreeComponent implements OnInit {
 	@Output() clone = new EventEmitter<string>();
 	@Output() remove = new EventEmitter<string>();
 	@Output() keyChange = new EventEmitter<{path: string; newKey: string}>();
+	@Output() changeType = new EventEmitter<{ path: string; type: string }>();
 
 	expandedPaths$ = this.componentStore.expandedPaths$;
 
@@ -36,5 +37,9 @@ export class ConfigTreeComponent implements OnInit {
 
 	onClone(path: string) {
 		this.clone.emit(path)
+	}
+
+	onChangeType($event: { path: string; type: string }) {
+		this.changeType.emit($event);
 	}
 }

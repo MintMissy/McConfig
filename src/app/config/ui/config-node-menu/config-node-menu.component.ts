@@ -13,4 +13,5 @@ export class ConfigNodeMenuComponent {
   @Output() clone = new EventEmitter<void>();
   @Output() remove = new EventEmitter<void>();
   @Output() addSubKey = new EventEmitter<void>();
+  @Output() changeType = new EventEmitter<string>();
 }
