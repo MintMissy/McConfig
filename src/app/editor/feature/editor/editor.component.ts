@@ -1,29 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { exampleConfig } from '../../constants/example-config';
 
-import { ConfigType } from 'src/app/config/enums/config-type.enum';
 import { EditorStore } from './editor.store';
-
-const defaultConfig = {
-	deployment: {
-		test: 'A',
-		files: ['fileA', 'FileB'],
-	},
-	x: 'a',
-	id: 'v1',
-	handlers: [
-		{
-			urlRegex: '/.*',
-			script: {
-				scriptPath: 'example-python-app.py',
-			},
-		},
-	],
-	runtime: 'python27',
-	material: 'ROOTED_DIRT',
-	versionNumber: 10,
-	double: 10.1,
-	threadsafe: false,
-};
 
 @Component({
 	selector: 'app-editor',
@@ -32,23 +10,13 @@ const defaultConfig = {
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	providers: [EditorStore],
 })
-export class EditorComponent implements OnInit {
+export class EditorComponent {
 	downloadLink$ = this.store.downloadLink$;
 	fileName$ = this.store.fileName$;
 	fileContent$ = this.store.fileContent$;
 	configuration$ = this.store.configuration$;
 
 	constructor(private readonly store: EditorStore) {}
-
-	ngOnInit(): void {
-		this.store.setState({
-			fileName: '',
-			configType: ConfigType.JSON,
-			fileContent: '',
-			configuration: defaultConfig,
-			downloadLink: '',
-		});
-	}
 
 	onConfigRemove() {
 		this.store.removeFile();
@@ -79,5 +47,10 @@ export class EditorComponent implements OnInit {
 
 	onAddSubKey($event: string) {
 		this.store.addSubKey($event);
+	}
+
+	onSampleConfigClick() {
+		const file = new File([JSON.stringify(exampleConfig)], 'example_configuration.json', { type: 'text/plain' });
+		this.store.uploadFile(file);
 	}
 }

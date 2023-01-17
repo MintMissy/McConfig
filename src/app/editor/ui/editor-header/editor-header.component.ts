@@ -14,4 +14,5 @@ export class EditorHeaderComponent {
 
 	@Output() delete = new EventEmitter<void>();
 	@Output() upload = new EventEmitter<Event>();
+	@Output() sampleConfigClick = new EventEmitter<void>();
 }

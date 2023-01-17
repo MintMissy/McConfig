@@ -5,6 +5,7 @@
 		[downloadLink]="downloadLink$ | async"
 		(delete)="onConfigRemove()"
 		(upload)="onUpload($event)"
+		(sampleConfigClick)="onSampleConfigClick()"
 	></app-editor-header>
 	<div class="h-[80vh] min-h-[200px] overflow-y-scroll bg-dark-800 p-3">
 		<app-config-tree
