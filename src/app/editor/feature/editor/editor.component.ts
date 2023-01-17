@@ -45,8 +45,8 @@ export class EditorComponent {
 		this.store.removeKey(path);
 	}
 
-	onAddSubKey($event: string) {
-		this.store.addSubKey($event);
+	onAddSubKey(path: string) {
+		this.store.addSubKey(path);
 	}
 
 	onSampleConfigClick() {

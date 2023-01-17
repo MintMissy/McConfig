@@ -1,17 +1,17 @@
-import { ConfigType, getConfigType } from 'src/app/config/enums/config-type.enum';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { ConfigType, getConfigType } from 'src/app/config/enums/config-type.enum';
 
+import { Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
 import { ConfigFileService } from 'src/app/config/service/config-file-service.class';
 import { FileServiceFactory } from 'src/app/config/service/file-service-factory.service';
-import { Injectable } from '@angular/core';
 import {
 	cloneDeep,
 	cloneNestedValue,
 	getNestedValue,
 	removeNestedKey,
 	renameNestedKey,
-	setNestedValue,
+	setNestedValue
 } from 'src/app/shared/utility/object-utility';
 
 export interface EditorState {
@@ -63,7 +63,14 @@ export class EditorStore extends ComponentStore<EditorState> {
 
 	addSubKey($event: string) {
 		this.patchState((state) => {
-			const newConfiguration = cloneDeep(setNestedValue({ ...state.configuration }, $event + '.newKey', ''));
+			const section = getNestedValue(state.configuration, $event);
+			if (Array.isArray(section)) {
+				section.push('');
+			} else {
+				section['newKey-' + Object.keys(section).length] = '';
+			}
+
+			const newConfiguration = cloneDeep(state.configuration);
 			return {
 				...state,
 				configuration: newConfiguration,

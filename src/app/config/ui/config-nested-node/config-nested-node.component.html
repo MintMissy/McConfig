@@ -19,7 +19,7 @@
 				[path]="entry.key | combinePath : path : root"
 				[expanded]="!!(expandedPaths && expandedPaths[entry.key | combinePath : path : root])"
 				(expandToggle)="expandToggle.emit($event)"
-				(addSubKey)="addSubKey.emit($event)"
+				(addSubKey)="onAddSubKey($event)"
 				(remove)="remove.emit($event)"
 				(clone)="clone.emit($event)"
 			></app-config-node-header>
@@ -27,6 +27,7 @@
 				[path]="entry.key | combinePath : path : root"
 				[configEntries]="entry.value"
 				[expandedPaths]="expandedPaths"
+				(addSubKey)="onAddSubKey($event)"
 				(expandToggle)="expandToggle.emit($event)"
 				(valueChange)="valueChange.emit($event)"
 				(keyChange)="keyChange.emit($event)"

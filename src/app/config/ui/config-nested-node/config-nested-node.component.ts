@@ -22,4 +22,8 @@ export class ConfigNestedNodeComponent {
 	trackEntry(index: number, entry: { key: string | number; value: any }) {
 		return entry ? entry.key : undefined;
 	}
+
+	onAddSubKey(path: string) {
+		this.addSubKey.emit(path);
+	}
 }

@@ -6,7 +6,7 @@
 	(expandToggle)="onSectionExpand($event)"
 	(valueChange)="valueChange.emit($event)"
 	(keyChange)="keyChange.emit($event)"
-	(addSubKey)="addSubKey.emit($event)"
-	(clone)="clone.emit($event)"
+	(addSubKey)="onAddKey($event)"
+	(clone)="onClone($event)"
 	(remove)="remove.emit($event)"
 ></app-config-nested-node>

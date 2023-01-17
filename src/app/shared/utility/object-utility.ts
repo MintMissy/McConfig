@@ -1,4 +1,4 @@
-import { isStringifiedNumber } from "../pipe/is-stringified-number.pipe";
+import { isStringifiedNumber } from '../pipe/is-stringified-number.pipe';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export function setNestedValue(object: Record<string | number, any>, path: string, value: any) {
@@ -9,6 +9,11 @@ export function setNestedValue(object: Record<string | number, any>, path: strin
 }
 
 export function cloneNestedValue(object: Record<string | number, any>, path: string) {
+	if (path.split('.').length === 1) {
+		object[path + '-clone'] = cloneDeep(object[path])
+		return object
+	}
+
 	const lastKeyInPath = getLastKey(path);
 
 	const temp = getNestedValue(object, path, 2);
@@ -46,7 +51,9 @@ export function renameNestedKey(object: Record<string | number, any>, path: stri
 
 export function getNestedValue(object: Record<string | number, any>, path: string, levelFromEnd = 1) {
 	const keys = path.split('.');
-	if (keys.length === 1) return object;
+	if (keys.length <= 1) {
+		return object[keys[0]];
+	}
 
 	let temp = object;
 	while (keys.length > levelFromEnd) {

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { ConfigTreeStore } from './config-tree.store';
 
@@ -28,5 +28,13 @@ export class ConfigTreeComponent implements OnInit {
 
 	onSectionExpand($event: { path: string }) {
 		this.componentStore.toggleExpand($event.path);
+	}
+
+	onAddKey(path: string) {
+		this.addSubKey.emit(path)
+	}
+
+	onClone(path: string) {
+		this.clone.emit(path)
 	}
 }
