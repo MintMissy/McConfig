@@ -29,7 +29,7 @@ describe('ConfigNodeComponent', () => {
 				StringInputComponent,
 				ConfigNodeMenuComponent,
 			],
-			imports: [MatMenuModule, FormsModule]
+			imports: [MatMenuModule, FormsModule],
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(ConfigNodeComponent);

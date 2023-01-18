@@ -15,8 +15,8 @@ export function setNestedValue(object: Record<string | number, any>, path: strin
 
 export function cloneNestedValue(object: Record<string | number, any>, path: string) {
 	if (path.split('.').length === 1) {
-		object[path + '-clone'] = cloneDeep(object[path])
-		return object
+		object[path + '-clone'] = cloneDeep(object[path]);
+		return object;
 	}
 
 	const lastKeyInPath = getLastKey(path);

@@ -16,9 +16,17 @@ describe('EditorComponent', () => {
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			declarations: [EditorComponent, EditorHeaderComponent, ConfigTreeComponent, ConfigNestedNodeComponent, FileInputComponent, EntriesPipe, LastPathKeyPipe],
+			declarations: [
+				EditorComponent,
+				EditorHeaderComponent,
+				ConfigTreeComponent,
+				ConfigNestedNodeComponent,
+				FileInputComponent,
+				EntriesPipe,
+				LastPathKeyPipe,
+			],
 			providers: [FileServiceFactory],
-			imports: [MatIconModule]
+			imports: [MatIconModule],
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(EditorComponent);

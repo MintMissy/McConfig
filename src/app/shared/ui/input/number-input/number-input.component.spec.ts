@@ -10,7 +10,7 @@ describe('NumberInputComponent', () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			declarations: [NumberInputComponent],
-			imports: [FormsModule]
+			imports: [FormsModule],
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(NumberInputComponent);

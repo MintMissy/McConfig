@@ -11,7 +11,7 @@ describe('FileInputComponent', () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			declarations: [FileInputComponent],
-			imports: [FormsModule, MatIconModule]
+			imports: [FormsModule, MatIconModule],
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(FileInputComponent);

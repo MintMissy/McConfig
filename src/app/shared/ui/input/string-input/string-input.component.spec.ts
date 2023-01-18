@@ -10,7 +10,7 @@ describe('StringInputComponent', () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			declarations: [StringInputComponent],
-			imports: [FormsModule]
+			imports: [FormsModule],
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(StringInputComponent);

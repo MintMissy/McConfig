@@ -16,8 +16,8 @@ import { NgModule } from '@angular/core';
 import { NumberInputComponent } from './ui/input/number-input/number-input.component';
 import { StringInputComponent } from './ui/input/string-input/string-input.component';
 import { TypeOfPipe } from './pipe/type-of.pipe';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatMenuModule } from '@angular/material/menu';
 import { IsStringifiedNumberPipe } from './pipe/is-stringified-number.pipe';
 @NgModule({
 	declarations: [
@@ -30,8 +30,7 @@ import { IsStringifiedNumberPipe } from './pipe/is-stringified-number.pipe';
 		StringInputComponent,
 		NumberInputComponent,
 		FileInputComponent,
-  IsStringifiedNumberPipe,
-
+		IsStringifiedNumberPipe,
 	],
 	exports: [
 		NavbarComponent,
@@ -49,7 +48,7 @@ import { IsStringifiedNumberPipe } from './pipe/is-stringified-number.pipe';
 		FileInputComponent,
 		MatTooltipModule,
 		MatMenuModule,
-  IsStringifiedNumberPipe
+		IsStringifiedNumberPipe,
 	],
 	imports: [
 		CommonModule,
@@ -61,7 +60,7 @@ import { IsStringifiedNumberPipe } from './pipe/is-stringified-number.pipe';
 		MatButtonModule,
 		MatDividerModule,
 		MatTooltipModule,
-		MatMenuModule
+		MatMenuModule,
 	],
 })
 export class SharedModule {}

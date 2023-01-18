@@ -11,7 +11,7 @@ import {
 	getNestedValue,
 	removeNestedKey,
 	renameNestedKey,
-	setNestedValue
+	setNestedValue,
 } from 'src/app/shared/utility/object-utility';
 
 export interface EditorState {

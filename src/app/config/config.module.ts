@@ -20,7 +20,7 @@ import { ConfigNodeMenuComponent } from './ui/config-node-menu/config-node-menu.
 		ConfigNestedNodeComponent,
 		LastPathKeyPipe,
 		CombinePathPipe,
-  ConfigNodeMenuComponent,
+		ConfigNodeMenuComponent,
 	],
 	exports: [
 		ConfigNodeHeaderComponent,

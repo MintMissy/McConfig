@@ -11,7 +11,7 @@ describe('EditorHeaderComponent', () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			declarations: [EditorHeaderComponent, IconButtonComponent],
-			imports: [MatIconModule]
+			imports: [MatIconModule],
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(EditorHeaderComponent);

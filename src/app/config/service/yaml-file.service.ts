@@ -11,7 +11,7 @@ import { Injectable } from '@angular/core';
 export class YamlFileService extends ConfigFileService {
 	serialize(file: File, callback: SerializationCallback): void {
 		this.readFile(file, (fileContent: string) => {
-						callback({ configuration: YAML.load(fileContent)!, fileContent: fileContent });
+			callback({ configuration: YAML.load(fileContent)!, fileContent: fileContent });
 		});
 	}
 

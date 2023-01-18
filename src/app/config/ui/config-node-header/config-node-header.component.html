@@ -6,7 +6,7 @@
 	>
 		{{ expanded ? "expand_more" : "chevron_right" }}
 	</mat-icon>
-	<h3 class="font-medium cursor-pointer" (click)="expandToggle.emit({ path: path })">{{ path | lastPathKey }}</h3>
+	<h3 class="cursor-pointer font-medium" (click)="expandToggle.emit({ path: path })">{{ path | lastPathKey }}</h3>
 	<div class="ml-auto hidden h-5 group-hover:block">
 		<app-config-node-menu
 			(addSubKey)="onAddSubKey(path)"

@@ -3,7 +3,7 @@
 >
 	<input
 		class="input input--transparent w-96"
-		[ngClass]="{'hover:bg-transparent': path | lastPathKey | isStringifiedNumber}"
+		[ngClass]="{ 'hover:bg-transparent': path | lastPathKey | isStringifiedNumber }"
 		[(ngModel)]="keyInputValue"
 		[disabled]="path | lastPathKey | isStringifiedNumber"
 		(focusout)="onKeyChange()"
