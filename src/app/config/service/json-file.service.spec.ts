@@ -6,7 +6,9 @@ describe('JsonFileService', () => {
 	let service: JsonFileService;
 
 	beforeEach(() => {
-		TestBed.configureTestingModule({});
+		TestBed.configureTestingModule({
+			providers: [JsonFileService],
+		});
 		service = TestBed.inject(JsonFileService);
 	});
 

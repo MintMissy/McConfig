@@ -6,7 +6,9 @@ describe('YamlFileService', () => {
 	let service: YamlFileService;
 
 	beforeEach(() => {
-		TestBed.configureTestingModule({});
+		TestBed.configureTestingModule({
+			providers: [YamlFileService],
+		});
 		service = TestBed.inject(YamlFileService);
 	});
 
