@@ -6,6 +6,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class LastPathKeyPipe implements PipeTransform {
 	transform(value: string): string {
 		const lastKey = value.split('.').pop();
-		return lastKey !== undefined ? lastKey : '';
+		if (lastKey === undefined) {
+			throw new Error("LastPathKey pipe couldn't get last path key from empty array");
+		}
+
+		return lastKey;
 	}
 }
