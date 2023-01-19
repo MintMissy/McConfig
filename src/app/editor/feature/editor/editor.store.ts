@@ -3,7 +3,7 @@ import { ConfigType, getConfigType } from 'src/app/config/enums/config-type.enum
 
 import { Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
-import { first } from 'rxjs';
+import { take } from 'rxjs';
 import { ConfigFileService } from 'src/app/config/service/config-file-service.class';
 import { FileServiceFactory } from 'src/app/config/service/file-service-factory.service';
 import {
@@ -52,7 +52,7 @@ export class EditorStore extends ComponentStore<EditorState> {
 		this.fileService = this.factory.create(configType);
 		this.fileService
 			.deserialize(file)
-			.pipe(first())
+			.pipe(take(1))
 			.subscribe((data) => {
 				this.patchState((state) => ({
 					...state,

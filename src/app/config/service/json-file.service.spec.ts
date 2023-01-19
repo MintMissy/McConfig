@@ -1,4 +1,5 @@
-import { fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
+import { take } from 'rxjs';
 
 import { JsonFileService } from './json-file.service';
 
@@ -26,6 +27,19 @@ describe('JsonFileService', () => {
 
 	it('should deserialize complex object', () => {
 		expect(service.serialize(complexObject)).toEqual(JSON.stringify(complexObject, null, 2));
+	});
+
+	it('should serialize and deserialize complex object', (done: DoneFn) => {
+		const serialized = service.serialize(complexObject);
+		const file = new File([serialized], 'file.json');
+
+		service
+			.deserialize(file)
+			.pipe(take(1))
+			.subscribe((deserializedFile) => {
+				expect(deserializedFile.configuration).toEqual(complexObject);
+				done();
+			});
 	});
 
 	it('should deserialize object with zeros)', () => {
