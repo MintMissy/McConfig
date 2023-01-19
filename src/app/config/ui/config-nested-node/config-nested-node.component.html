@@ -6,7 +6,7 @@
 		<!-- Field (String, Number, Boolean) -->
 		<app-config-node
 			*ngIf="(entry.value | typeOf) !== 'object'; else nestedNode"
-			[path]="entry.key | combinePath : path : root"
+			[path]="entry.key | combinePath : path"
 			[value]="entry.value"
 			(valueChange)="valueChange.emit($event)"
 			(keyChange)="keyChange.emit($event)"
@@ -17,8 +17,8 @@
 		<!-- Nested Node (Object, Array) -->
 		<ng-template #nestedNode>
 			<app-config-node-header
-				[path]="entry.key | combinePath : path : root"
-				[expanded]="!!(expandedPaths && expandedPaths[entry.key | combinePath : path : root])"
+				[path]="entry.key | combinePath : path"
+				[expanded]="!!(expandedPaths && expandedPaths[entry.key | combinePath : path])"
 				(expandToggle)="expandToggle.emit($event)"
 				(addSubKey)="onAddSubKey($event)"
 				(changeType)="onChangeType($event)"
@@ -26,7 +26,7 @@
 				(clone)="clone.emit($event)"
 			></app-config-node-header>
 			<app-config-nested-node
-				[path]="entry.key | combinePath : path : root"
+				[path]="entry.key | combinePath : path"
 				[configEntries]="entry.value"
 				[expandedPaths]="expandedPaths"
 				(addSubKey)="onAddSubKey($event)"

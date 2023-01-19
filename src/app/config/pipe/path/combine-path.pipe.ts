@@ -4,8 +4,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 	name: 'combinePath',
 })
 export class CombinePathPipe implements PipeTransform {
-	transform(key: string, path: string, isRoot: boolean): string {
-		if (isRoot) {
+	transform(key: string, path: string): string {
+		if (path === '') {
 			return key;
 		}
 		return path + '.' + key;
