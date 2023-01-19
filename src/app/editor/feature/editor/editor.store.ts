@@ -11,7 +11,7 @@ import {
 	getNestedValue,
 	removeNestedKey,
 	renameNestedKey,
-	setNestedValue,
+	setNestedValue
 } from 'src/app/shared/utility/object-utility';
 
 export interface EditorState {
@@ -41,7 +41,7 @@ export class EditorStore extends ComponentStore<EditorState> {
 			return {
 				...state,
 				configuration: newConfiguration,
-				downloadLink: this.getDownloadUrl(this.fileService.deserialize(newConfiguration)),
+				downloadLink: this.getDownloadUrl(this.fileService.serialize(newConfiguration)),
 			};
 		});
 	}
@@ -49,7 +49,7 @@ export class EditorStore extends ComponentStore<EditorState> {
 	uploadFile(file: File) {
 		const configType = getConfigType(file);
 		this.fileService = this.factory.create(configType);
-		this.fileService.serialize(file, (data) => {
+		this.fileService.deserialize(file, (data) => {
 			this.patchState((state) => ({
 				...state,
 				fileName: file.name,
@@ -74,7 +74,7 @@ export class EditorStore extends ComponentStore<EditorState> {
 			return {
 				...state,
 				configuration: newConfiguration,
-				downloadLink: this.getDownloadUrl(this.fileService.deserialize(newConfiguration)),
+				downloadLink: this.getDownloadUrl(this.fileService.serialize(newConfiguration)),
 			};
 		});
 	}
@@ -85,7 +85,7 @@ export class EditorStore extends ComponentStore<EditorState> {
 			return {
 				...state,
 				configuration: newConfiguration,
-				downloadLink: this.getDownloadUrl(this.fileService.deserialize(newConfiguration)),
+				downloadLink: this.getDownloadUrl(this.fileService.serialize(newConfiguration)),
 			};
 		});
 	}
@@ -96,7 +96,7 @@ export class EditorStore extends ComponentStore<EditorState> {
 			return {
 				...state,
 				configuration: newConfiguration,
-				downloadLink: this.getDownloadUrl(this.fileService.deserialize(newConfiguration)),
+				downloadLink: this.getDownloadUrl(this.fileService.serialize(newConfiguration)),
 			};
 		});
 	}
@@ -107,7 +107,7 @@ export class EditorStore extends ComponentStore<EditorState> {
 			return {
 				...state,
 				configuration: newConfiguration,
-				downloadLink: this.getDownloadUrl(this.fileService.deserialize(newConfiguration)),
+				downloadLink: this.getDownloadUrl(this.fileService.serialize(newConfiguration)),
 			};
 		});
 	}
