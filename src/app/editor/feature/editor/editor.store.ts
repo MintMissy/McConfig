@@ -3,6 +3,7 @@ import { ConfigType, getConfigType } from 'src/app/config/enums/config-type.enum
 
 import { Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
+import { first } from 'rxjs';
 import { ConfigFileService } from 'src/app/config/service/config-file-service.class';
 import { FileServiceFactory } from 'src/app/config/service/file-service-factory.service';
 import {
@@ -49,16 +50,19 @@ export class EditorStore extends ComponentStore<EditorState> {
 	uploadFile(file: File) {
 		const configType = getConfigType(file);
 		this.fileService = this.factory.create(configType);
-		this.fileService.deserialize(file, (data) => {
-			this.patchState((state) => ({
-				...state,
-				fileName: file.name,
-				configType: configType,
-				configuration: data.configuration,
-				fileContent: data.fileContent,
-				downloadLink: this.getDownloadUrl(data.fileContent),
-			}));
-		});
+		this.fileService
+			.deserialize(file)
+			.pipe(first())
+			.subscribe((data) => {
+				this.patchState((state) => ({
+					...state,
+					fileName: file.name,
+					configType: configType,
+					configuration: data.configuration,
+					fileContent: data.fileContent,
+					downloadLink: this.getDownloadUrl(data.fileContent),
+				}));
+			});
 	}
 
 	addSubKey($event: string) {

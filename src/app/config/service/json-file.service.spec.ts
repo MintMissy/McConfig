@@ -28,8 +28,6 @@ describe('JsonFileService', () => {
 		expect(service.serialize(complexObject)).toEqual(JSON.stringify(complexObject, null, 2));
 	});
 
-	
-
 	it('should deserialize object with zeros)', () => {
 		const object = {
 			zero: 0,
