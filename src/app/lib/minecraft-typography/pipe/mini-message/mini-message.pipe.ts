@@ -1,6 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-
-import { MinecraftTextPipe } from '../minecraft-text.pipe';
+import { MinecraftTextPipe } from 'src/app/minecraft/pipe/minecraft-text/minecraft-text.pipe';
 
 const minimessageColorMap: Record<string, string> = {
 	black: '#000000',

@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-
 import { Material } from '../enums/material.enum';
+
 
 @Pipe({
 	name: 'isMaterial',

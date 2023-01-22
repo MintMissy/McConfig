@@ -1,5 +1,5 @@
-import { BehaviorSubject, debounceTime, distinctUntilChanged, map } from 'rxjs';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { BehaviorSubject, debounceTime, distinctUntilChanged, map } from 'rxjs';
 
 import { BaseInputComponent } from 'src/app/shared/ui/input/base-input.component';
 import { Material } from '../../enums/material.enum';

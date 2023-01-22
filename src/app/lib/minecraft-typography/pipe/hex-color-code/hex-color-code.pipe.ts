@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { isHexColor } from 'src/app/shared/utility/color-utility';
+import { isHexColor } from 'src/app/lib/minecraft-typography/utility/color-utility';
 import { ColorCodePipe } from '../color-code/color-code.pipe';
 
 @Pipe({

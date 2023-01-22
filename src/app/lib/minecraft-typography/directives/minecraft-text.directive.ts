@@ -1,10 +1,10 @@
 import { Directive, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
-import { Subscription, interval } from 'rxjs';
+import { interval, Subscription } from 'rxjs';
 
-import { ColorCodePipe } from '../pipe/minecraft-text/color-code/color-code.pipe';
-import { HexColorCodePipe } from '../pipe/minecraft-text/hex-color-code/hex-color-code.pipe';
-import { MiniMessagePipe } from '../pipe/minecraft-text/mini-message/mini-message.pipe';
-import { obfuscatedText } from '../../shared/utility/obfuscated-text-utility';
+import { ColorCodePipe } from '../pipe/color-code/color-code.pipe';
+import { HexColorCodePipe } from '../pipe/hex-color-code/hex-color-code.pipe';
+import { MiniMessagePipe } from '../pipe/mini-message/mini-message.pipe';
+import { obfuscatedText } from '../utility/obfuscated-text-utility';
 
 export interface MinecraftTextConfig {
 	parseMiniMessage?: boolean;
