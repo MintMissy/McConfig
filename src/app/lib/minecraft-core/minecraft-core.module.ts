@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { IsMaterialPipe } from './pipe/is-material.pipe';
 import { MaterialInputComponent } from './ui/material-input/material-input.component';
 
@@ -17,4 +17,4 @@ import { MaterialInputComponent } from './ui/material-input/material-input.compo
 		IsMaterialPipe,
 	],
 })
-export class MinecraftModule {}
+export class MinecraftCoreModule {}

@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MinecraftCoreModule } from '../lib/minecraft-core/minecraft-core.module';
 import { MinecraftTypographyModule } from '../lib/minecraft-typography/minecraft-typography.module';
-import { MinecraftModule } from '../minecraft/minecraft.module';
 import { SharedModule } from '../shared/shared.module';
 import { ConfigTreeComponent } from './feature/config-tree/config-tree.component';
 import { CombinePathPipe } from './pipe/path/combine-path.pipe';
@@ -13,7 +13,7 @@ import { ConfigNodeMenuComponent } from './ui/config-node-menu/config-node-menu.
 import { ConfigNodeComponent } from './ui/config-node/config-node.component';
 
 @NgModule({
-	imports: [CommonModule, SharedModule, FormsModule, MinecraftModule, MinecraftTypographyModule],
+	imports: [CommonModule, SharedModule, FormsModule, MinecraftCoreModule, MinecraftTypographyModule],
 	declarations: [
 		ConfigNodeHeaderComponent,
 		ConfigTreeComponent,
