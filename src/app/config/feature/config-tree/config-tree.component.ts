@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ConfigEntry } from '../../model/savable-object.model';
 
 import { ConfigTreeStore } from './config-tree.store';
 
@@ -10,7 +11,7 @@ import { ConfigTreeStore } from './config-tree.store';
 	providers: [ConfigTreeStore],
 })
 export class ConfigTreeComponent implements OnInit {
-	@Input() configSection: Record<string | number, any> | null = {};
+	@Input() configSection: ConfigEntry | null = {};
 
 	@Output() valueChange = new EventEmitter<{ path: string; value: any }>();
 	@Output() addSubKey = new EventEmitter<string>();

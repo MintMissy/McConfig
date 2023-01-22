@@ -1,14 +1,15 @@
-import { Observable } from "rxjs";
+import { Observable } from 'rxjs';
+import { ConfigEntry } from '../model/savable-object.model';
 
 export type DeserializedFile = {
-	configuration: Record<string | number, any>;
+	configuration: ConfigEntry;
 	fileContent: string;
 };
 
 export abstract class ConfigFileService {
 	abstract deserialize(file: File): Observable<DeserializedFile>;
 
-	abstract serialize(configuration: Record<string | number, any>): string;
+	abstract serialize(configuration: ConfigEntry): string;
 
 	protected readFile(file: File, callback: (fileContent: string) => void): void {
 		const fileReader: FileReader = new FileReader();

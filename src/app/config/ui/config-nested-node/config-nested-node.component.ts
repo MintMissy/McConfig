@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ConfigEntry } from '../../model/savable-object.model';
 
 @Component({
 	selector: 'app-config-nested-node',
@@ -8,7 +9,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 })
 export class ConfigNestedNodeComponent {
 	@Input() path = '';
-	@Input() configEntries: Record<string | number, any> | null = [];
+	@Input() configEntries: ConfigEntry | null = [];
 	@Input() expandedPaths: { [path: string]: boolean } | null = {};
 	@Input() root = false;
 

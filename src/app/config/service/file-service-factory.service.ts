@@ -1,8 +1,8 @@
 import { Injectable, Injector } from '@angular/core';
 
-import { ConfigFileService } from './config-file-service.class';
 import { ConfigModule } from '../config.module';
-import { ConfigType } from '../enums/config-type.enum';
+import { ConfigType } from '../model/config-type.model';
+import { ConfigFileService } from './config-file-service.class';
 import { JsonFileService } from './json-file.service';
 import { YamlFileService } from './yaml-file.service';
 
@@ -14,9 +14,9 @@ export class FileServiceFactory {
 
 	create(configType: ConfigType): ConfigFileService {
 		switch (configType) {
-			case ConfigType.JSON:
+			case 'JSON':
 				return this.injector.get(JsonFileService);
-			case ConfigType.YAML:
+			case 'YAML':
 				return this.injector.get(YamlFileService);
 		}
 	}

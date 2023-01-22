@@ -5,6 +5,7 @@ import { ConfigFileService, DeserializedFile } from './config-file-service.class
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ConfigModule } from '../config.module';
+import { ConfigEntry } from '../model/savable-object.model';
 
 @Injectable({
 	providedIn: ConfigModule,
@@ -25,7 +26,7 @@ export class YamlFileService extends ConfigFileService {
 		return observable;
 	}
 
-	serialize(configuration: Record<string | number, any>): string {
+	serialize(configuration: ConfigEntry): string {
 		return YAML.dump(configuration);
 	}
 }

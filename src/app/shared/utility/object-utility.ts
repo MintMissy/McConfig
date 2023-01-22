@@ -1,7 +1,8 @@
+import { ConfigEntry } from 'src/app/config/model/savable-object.model';
 import { isStringifiedNumber } from '../pipe/is-stringified-number.pipe';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export function setNestedValue(object: Record<string | number, any>, path: string, value: any) {
+export function setNestedValue(object: ConfigEntry, path: string, value: any) {
 	if (path.split('.').length === 1) {
 		object[path] = value;
 		return object;
@@ -13,7 +14,7 @@ export function setNestedValue(object: Record<string | number, any>, path: strin
 	return object;
 }
 
-export function cloneNestedValue(object: Record<string | number, any>, path: string) {
+export function cloneNestedValue(object: ConfigEntry, path: string) {
 	if (path.split('.').length === 1) {
 		object[path + '-clone'] = cloneDeep(object[path]);
 		return object;
@@ -39,7 +40,7 @@ export function cloneNestedValue(object: Record<string | number, any>, path: str
 	return object;
 }
 
-export function removeNestedKey(object: Record<string | number, any>, path: string) {
+export function removeNestedKey(object: ConfigEntry, path: string) {
 	if (path.split('.').length === 1) {
 		delete object[path];
 		return object;
@@ -51,7 +52,7 @@ export function removeNestedKey(object: Record<string | number, any>, path: stri
 	return object;
 }
 
-export function renameNestedKey(object: Record<string | number, any>, path: string, newKey: string) {
+export function renameNestedKey(object: ConfigEntry, path: string, newKey: string) {
 	if (path.split('.').length === 1) {
 		object[newKey] = object[path];
 		delete object[path];
@@ -65,7 +66,7 @@ export function renameNestedKey(object: Record<string | number, any>, path: stri
 	return object;
 }
 
-export function getNestedValue(object: Record<string | number, any>, path: string, levelFromEnd = 1) {
+export function getNestedValue(object: ConfigEntry, path: string, levelFromEnd = 1) {
 	const keys = path.split('.');
 	if (keys.length <= 1) {
 		return object[keys[0]];
@@ -84,6 +85,6 @@ function getLastKey(path: string): string {
 	return lastKey == null ? path : lastKey;
 }
 
-export function cloneDeep(object: Record<string | number, any>) {
+export function cloneDeep(object: ConfigEntry) {
 	return JSON.parse(JSON.stringify(object));
 }

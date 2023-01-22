@@ -1,9 +1,10 @@
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { ConfigType, getConfigType } from 'src/app/config/enums/config-type.enum';
+import { ConfigType, getConfigType } from 'src/app/config/model/config-type.model';
 
 import { Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
 import { take } from 'rxjs';
+import { ConfigEntry } from 'src/app/config/model/savable-object.model';
 import { ConfigFileService } from 'src/app/config/service/config-file-service.class';
 import { FileServiceFactory } from 'src/app/config/service/file-service-factory.service';
 import {
@@ -19,7 +20,7 @@ export interface EditorState {
 	fileName: string;
 	configType: ConfigType;
 	fileContent: string;
-	configuration: Record<string | number, any>;
+	configuration: ConfigEntry;
 	downloadLink: SafeUrl | null;
 }
 
@@ -28,7 +29,7 @@ export class EditorStore extends ComponentStore<EditorState> {
 	private fileService!: ConfigFileService;
 
 	constructor(private sanitizer: DomSanitizer, private factory: FileServiceFactory) {
-		super({ fileName: '', configType: ConfigType.JSON, fileContent: '', configuration: {}, downloadLink: '' });
+		super({ fileName: '', configType: "JSON", fileContent: '', configuration: {}, downloadLink: '' });
 	}
 
 	readonly downloadLink$ = this.select((state) => state.downloadLink);
@@ -123,7 +124,7 @@ export class EditorStore extends ComponentStore<EditorState> {
 
 	removeFile() {
 		this.patchState(() => ({
-			configType: ConfigType.JSON,
+			configType: "JSON",
 			fileName: '',
 			fileContent: '',
 			configuration: {},

@@ -1,7 +1,4 @@
-export enum ConfigType {
-	YAML,
-	JSON,
-}
+export type ConfigType = "YAML" | "JSON";
 
 export function getConfigType(file: File): ConfigType {
 	const extension = file.name.split('.').pop();
@@ -9,10 +6,10 @@ export function getConfigType(file: File): ConfigType {
 
 	switch (extension) {
 		case 'json':
-			return ConfigType.JSON;
+			return "JSON";
 		case 'yml':
 		case 'yaml':
-			return ConfigType.YAML;
+			return "YAML";
 	}
 
 	throw new Error('File extension is not supported');
