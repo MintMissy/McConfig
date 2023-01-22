@@ -14,4 +14,4 @@ import { MinecraftTextEditorRoutingModule } from './minecraft-text-editor-routin
     MinecraftTextEditorRoutingModule
   ]
 })
-export class MinecraftTextEditorModule { }
+export class MinecraftTextEditorPageModule { }

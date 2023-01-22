@@ -1,19 +1,19 @@
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { ConfigType, getConfigType } from 'src/app/config/model/config-type.model';
+import { ConfigType, getConfigType } from 'src/app/lib/file-parser/model/config-type.model';
 
 import { Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
 import { take } from 'rxjs';
-import { ConfigEntry } from 'src/app/config/model/savable-object.model';
-import { ConfigFileService } from 'src/app/config/service/config-file-service.class';
-import { FileServiceFactory } from 'src/app/config/service/file-service-factory.service';
+import { ConfigEntry } from 'src/app/lib/file-parser/model/savable-object.model';
+import { ConfigFileService } from 'src/app/lib/file-parser/service/config-file-service.class';
+import { FileServiceFactory } from 'src/app/lib/file-parser/service/file-service-factory.service';
 import {
-	cloneDeep,
-	cloneNestedValue,
-	getNestedValue,
-	removeNestedKey,
-	renameNestedKey,
-	setNestedValue
+    cloneDeep,
+    cloneNestedValue,
+    getNestedValue,
+    removeNestedKey,
+    renameNestedKey,
+    setNestedValue
 } from 'src/app/shared/utility/object-utility';
 
 export interface EditorState {

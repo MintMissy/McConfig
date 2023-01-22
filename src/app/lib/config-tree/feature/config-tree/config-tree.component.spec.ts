@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { EntriesPipe } from 'src/app/shared/pipe/entries.pipe';
-import { LastPathKeyPipe } from '../../pipe/path/last-path-key.pipe';
+import { LastPathKeyPipe } from '../../../../config/pipe/path/last-path-key.pipe';
 import { ConfigNestedNodeComponent } from '../../ui/config-nested-node/config-nested-node.component';
 
 import { ConfigTreeComponent } from './config-tree.component';

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ConfigEntry } from '../../model/savable-object.model';
+import { ConfigEntry } from '../../../file-parser/model/savable-object.model';
 
 import { ConfigTreeStore } from './config-tree.store';
 

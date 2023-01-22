@@ -1,4 +1,4 @@
-import { ConfigEntry } from 'src/app/config/model/savable-object.model';
+import { ConfigEntry } from 'src/app/lib/file-parser/model/savable-object.model';
 import { isStringifiedNumber } from '../pipe/is-stringified-number.pipe';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */

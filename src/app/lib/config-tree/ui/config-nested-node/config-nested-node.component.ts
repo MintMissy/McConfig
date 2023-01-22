@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { ConfigEntry } from '../../model/savable-object.model';
+import { ConfigEntry } from '../../../file-parser/model/savable-object.model';
 
 @Component({
 	selector: 'app-config-nested-node',
