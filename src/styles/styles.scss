@@ -20,6 +20,7 @@ $theme: mat.define-dark-theme(
 @include mat.core-theme($theme);
 @include mat.button-theme($theme);
 
+@import "bootstrap-icons/font/bootstrap-icons.css";
 @import "reset";
 @import "material-reset";
 @import "components";

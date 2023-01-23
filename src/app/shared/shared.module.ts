@@ -27,6 +27,7 @@ import { IsStringifiedNumberPipe } from './pipe/is-stringified-number.pipe';
 		NumberInputComponent,
 		FileInputComponent,
 		IsStringifiedNumberPipe,
+  
 	],
 	exports: [
 		MatIconModule,

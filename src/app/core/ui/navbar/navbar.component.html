@@ -1,29 +1,31 @@
 <nav>
-	<mat-toolbar class="flex h-14 justify-between border-b-[1px] border-dark-700 bg-transparent p-0 py-0">
-		<div class="flex">
-			<!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+	<mat-toolbar class="h-14 border-b-[1px] border-dark-700 bg-transparent p-0 py-0">
+		<div class="mx-auto flex max-w-7xl w-full justify-between items-center">
+			<div class="flex">
+				<!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
 				<mat-icon>menu</mat-icon>
 			</button> -->
-			<span class="flex items-center text-xl font-bold">Minecraft Utils</span>
-		</div>
-		<div class="flex gap-3">
-			<a
-				routerLink=""
-				class="button"
-				[routerLinkActive]="'button--primary'"
-				[routerLinkActiveOptions]="{ exact: true }"
-			>
-				Home
-			</a>
-			<a routerLink="editorconfig" class="button" [routerLinkActive]="'button--primary'"> Configuration </a>
-			<a routerLink="text" class="button" [routerLinkActive]="'button--primary'"> Items Configurator </a>
-			<a routerLink="texteditor" class="button" [routerLinkActive]="'button--primary'"> Colors Editor </a>
-		</div>
-		<div>
-			<a href="https://github.com/MintMissy" class="button button--accent gap-1">
-				<mat-icon>code</mat-icon>
-				<span>About Developer</span>
-			</a>
+				<a class="text-xl font-bold" routerLink=""> Mc-Craft Utils</a>
+			</div>
+			<div class="flex gap-3">
+				<a
+					routerLink=""
+					class="button"
+					[routerLinkActive]="'button--primary'"
+					[routerLinkActiveOptions]="{ exact: true }"
+				>
+					Home
+				</a>
+				<a routerLink="editorconfig" class="button" [routerLinkActive]="'button--primary'"> Config Editor </a>
+				<a routerLink="text" class="button" [routerLinkActive]="'button--primary'"> Items Configurator </a>
+				<a routerLink="texteditor" class="button" [routerLinkActive]="'button--primary'"> Color Utility </a>
+			</div>
+			<div>
+				<a href="https://github.com/MintMissy" class="button button--accent gap-1">
+					<mat-icon>code</mat-icon>
+					<span>About Developer</span>
+				</a>
+			</div>
 		</div>
 	</mat-toolbar>
 </nav>
