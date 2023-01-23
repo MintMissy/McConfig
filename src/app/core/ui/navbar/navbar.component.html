@@ -1,20 +1,29 @@
-<p>
-	<mat-toolbar class="flex justify-between p-0">
+<nav>
+	<mat-toolbar class="flex h-14 justify-between border-b-[1px] border-dark-700 bg-transparent p-0 py-0">
 		<div class="flex">
-			<button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+			<!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
 				<mat-icon>menu</mat-icon>
-			</button>
-			<span class="flex items-center text-xl">McConfig</span>
+			</button> -->
+			<span class="flex items-center text-xl font-bold">Minecraft Utils</span>
 		</div>
-		<div class="flex gap-4">
-			<button mat-raised-button color="primary" class="flex items-center">
-				<mat-icon>delete</mat-icon>
-				<span>Delete</span>
-			</button>
-			<button mat-raised-button color="primary" class="flex items-center">
-				<mat-icon>save</mat-icon>
-				<span>Save</span>
-			</button>
+		<div class="flex gap-3">
+			<a
+				routerLink=""
+				class="button"
+				[routerLinkActive]="'button--primary'"
+				[routerLinkActiveOptions]="{ exact: true }"
+			>
+				Home
+			</a>
+			<a routerLink="editorconfig" class="button" [routerLinkActive]="'button--primary'"> Configuration </a>
+			<a routerLink="text" class="button" [routerLinkActive]="'button--primary'"> Items Configurator </a>
+			<a routerLink="texteditor" class="button" [routerLinkActive]="'button--primary'"> Colors Editor </a>
+		</div>
+		<div>
+			<a href="https://github.com/MintMissy" class="button button--accent gap-1">
+				<mat-icon>code</mat-icon>
+				<span>About Developer</span>
+			</a>
 		</div>
 	</mat-toolbar>
-</p>
+</nav>
