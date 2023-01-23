@@ -1,0 +1,28 @@
+.footer {
+	&__icon {
+		@apply hover:text-gray-50;
+	}
+
+	&__section {
+		display: flex;
+		flex-direction: column;
+		min-width: 100px;
+	}
+
+	&__section-title {
+		font-weight: 500;
+		text-transform: uppercase;
+		@apply mb-4 text-lg text-white;
+	}
+
+	&__links-list {
+		display: flex;
+		flex-direction: column;
+		list-style: none;
+		@apply gap-2 text-base;
+	}
+
+	&__link a {
+		@apply hover:text-white;
+	}
+}
