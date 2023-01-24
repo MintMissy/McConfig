@@ -7,7 +7,7 @@
 		(upload)="onUpload($event)"
 		(sampleConfigClick)="onSampleConfigClick()"
 	></app-editor-header>
-	<div class="h-[80vh] min-h-[200px] overflow-y-scroll bg-dark-900 p-3 border-dark-800 border-[1px]">
+	<div class="h-[80vh] min-h-[200px] bg-dark-900 p-3 border-dark-800 border-[1px]">
 		<app-config-tree
 			[configSection]="configuration$ | async"
 			(valueChange)="onValueChange($event)"

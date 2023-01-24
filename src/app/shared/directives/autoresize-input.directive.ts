@@ -11,7 +11,8 @@ export class AutoResizeInputDirective implements OnChanges {
 	private width = 'auto';
 
 	recalculateWidth(): void {
-		this.width = (this.appAutoResizeInput + '').length + 2 + this.widthUnit;
+		const width = (this.appAutoResizeInput + '').length + 2;
+		this.width = width + this.widthUnit;
 	}
 
 	ngOnChanges(): void {
