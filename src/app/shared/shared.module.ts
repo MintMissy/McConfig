@@ -1,14 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatTooltipModule } from '@angular/material/tooltip';
+import { MaterialModule } from '../lib/material/material.module';
 import { AutoResizeInputDirective } from './directives/autoresize-input.directive';
 import { EntriesPipe } from './pipe/entries.pipe';
 import { IsStringifiedNumberPipe } from './pipe/is-stringified-number.pipe';
@@ -20,45 +13,34 @@ import { NumberInputComponent } from './ui/input/number-input/number-input.compo
 import { StringInputComponent } from './ui/input/string-input/string-input.component';
 @NgModule({
 	declarations: [
+		// Components
 		IconButtonComponent,
-		EntriesPipe,
-		TypeOfPipe,
 		BooleanInputComponent,
 		StringInputComponent,
 		NumberInputComponent,
 		FileInputComponent,
+		// Pipes
+		EntriesPipe,
+		TypeOfPipe,
 		IsStringifiedNumberPipe,
-  AutoResizeInputDirective,
-  
+		// Directives
+		AutoResizeInputDirective,
 	],
+	imports: [CommonModule, MaterialModule, FormsModule],
 	exports: [
-		MatIconModule,
-		MatButtonModule,
-		MatDividerModule,
+		MaterialModule,
+		// Components
 		IconButtonComponent,
-		EntriesPipe,
-		TypeOfPipe,
-		MatAutocompleteModule,
 		BooleanInputComponent,
 		StringInputComponent,
 		NumberInputComponent,
 		FileInputComponent,
-		MatTooltipModule,
-		MatMenuModule,
+		// Pipes
+		EntriesPipe,
+		TypeOfPipe,
 		IsStringifiedNumberPipe,
-  AutoResizeInputDirective,
-	],
-	imports: [
-		CommonModule,
-		MatAutocompleteModule,
-		MatInputModule,
-		MatIconModule,
-		FormsModule,
-		MatToolbarModule,
-		MatButtonModule,
-		MatDividerModule,
-		MatTooltipModule,
-		MatMenuModule,
+		// Directives
+		AutoResizeInputDirective,
 	],
 })
 export class SharedModule {}
