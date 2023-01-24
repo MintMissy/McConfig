@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { ConfigEntry } from '../model/savable-object.model';
 
 @Injectable({
-	providedIn: 'root'
+	providedIn: 'root',
 })
 export class JsonFileService extends ConfigFileService {
 	deserialize(file: File): Observable<DeserializedFile> {

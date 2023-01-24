@@ -5,7 +5,7 @@ import { ConfigEditorPageComponent } from './config-editor-page.component';
 const routes: Routes = [{ path: '', component: ConfigEditorPageComponent }];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule],
 })
-export class ConfigEditorPageRoutingModule { }
+export class ConfigEditorPageRoutingModule {}

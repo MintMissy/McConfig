@@ -9,23 +9,30 @@ import { ConfigNestedNodeComponent } from './ui/config-nested-node/config-nested
 import { ConfigNodeHeaderComponent } from './ui/config-node-header/config-node-header.component';
 import { ConfigNodeMenuComponent } from './ui/config-node-menu/config-node-menu.component';
 import { ConfigNodeComponent } from './ui/config-node/config-node.component';
-import { MinecraftTypographyModule } from "../minecraft-typography/minecraft-typography.module";
+import { MinecraftTypographyModule } from '../minecraft-typography/minecraft-typography.module';
 
 @NgModule({
-    declarations: [
-        ConfigNodeHeaderComponent,
-        ConfigTreeComponent,
-        ConfigNodeComponent,
-        ConfigNestedNodeComponent,
-        ConfigNodeMenuComponent,
-    ],
-    exports: [
-        ConfigNodeHeaderComponent,
-        ConfigTreeComponent,
-        ConfigNodeComponent,
-        ConfigNestedNodeComponent,
-        ConfigNodeMenuComponent,
-    ],
-    imports: [CommonModule, SharedModule, MinecraftCoreModule, ConfigUtilityModule, FormsModule, MinecraftTypographyModule]
+	declarations: [
+		ConfigNodeHeaderComponent,
+		ConfigTreeComponent,
+		ConfigNodeComponent,
+		ConfigNestedNodeComponent,
+		ConfigNodeMenuComponent,
+	],
+	exports: [
+		ConfigNodeHeaderComponent,
+		ConfigTreeComponent,
+		ConfigNodeComponent,
+		ConfigNestedNodeComponent,
+		ConfigNodeMenuComponent,
+	],
+	imports: [
+		CommonModule,
+		SharedModule,
+		MinecraftCoreModule,
+		ConfigUtilityModule,
+		FormsModule,
+		MinecraftTypographyModule,
+	],
 })
 export class ConfigTreeModule {}

@@ -8,12 +8,12 @@ import { ConfigEntry } from 'src/app/lib/file-parser/model/savable-object.model'
 import { ConfigFileService } from 'src/app/lib/file-parser/service/config-file-service.class';
 import { FileServiceFactory } from 'src/app/lib/file-parser/service/file-service-factory.service';
 import {
-    cloneDeep,
-    cloneNestedValue,
-    getNestedValue,
-    removeNestedKey,
-    renameNestedKey,
-    setNestedValue
+	cloneDeep,
+	cloneNestedValue,
+	getNestedValue,
+	removeNestedKey,
+	renameNestedKey,
+	setNestedValue,
 } from 'src/app/shared/utility/object-utility';
 
 export interface EditorState {
@@ -29,7 +29,7 @@ export class EditorStore extends ComponentStore<EditorState> {
 	private fileService!: ConfigFileService;
 
 	constructor(private sanitizer: DomSanitizer, private factory: FileServiceFactory) {
-		super({ fileName: '', configType: "JSON", fileContent: '', configuration: {}, downloadLink: '' });
+		super({ fileName: '', configType: 'JSON', fileContent: '', configuration: {}, downloadLink: '' });
 	}
 
 	readonly downloadLink$ = this.select((state) => state.downloadLink);
@@ -124,7 +124,7 @@ export class EditorStore extends ComponentStore<EditorState> {
 
 	removeFile() {
 		this.patchState(() => ({
-			configType: "JSON",
+			configType: 'JSON',
 			fileName: '',
 			fileContent: '',
 			configuration: {},

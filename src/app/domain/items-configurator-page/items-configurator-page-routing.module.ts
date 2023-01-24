@@ -5,7 +5,7 @@ import { ItemsConfiguratorPageComponent } from './items-configurator-page.compon
 const routes: Routes = [{ path: '', component: ItemsConfiguratorPageComponent }];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule],
 })
-export class ItemsConfiguratorPageRoutingModule { }
+export class ItemsConfiguratorPageRoutingModule {}

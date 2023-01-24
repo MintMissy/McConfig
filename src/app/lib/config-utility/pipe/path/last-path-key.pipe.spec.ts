@@ -6,7 +6,7 @@ describe('LastPathKeyPipe', () => {
 	beforeEach(() => {
 		pipe = new LastPathKeyPipe();
 	});
-	
+
 	it('create an instance', () => {
 		expect(pipe).toBeTruthy();
 	});

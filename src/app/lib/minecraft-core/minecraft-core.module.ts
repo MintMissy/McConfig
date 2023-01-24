@@ -5,16 +5,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { IsMaterialPipe } from './pipe/is-material.pipe';
 import { MaterialInputComponent } from './ui/material-input/material-input.component';
 
-
 @NgModule({
 	imports: [CommonModule, SharedModule, FormsModule],
-	declarations: [
-		MaterialInputComponent,
-		IsMaterialPipe,
-	],
-	exports: [
-		MaterialInputComponent,
-		IsMaterialPipe,
-	],
+	declarations: [MaterialInputComponent, IsMaterialPipe],
+	exports: [MaterialInputComponent, IsMaterialPipe],
 })
 export class MinecraftCoreModule {}

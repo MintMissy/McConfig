@@ -12,22 +12,22 @@ describe('CombinePathPipe', () => {
 	});
 
 	it('return only root path', () => {
-		expect(pipe.transform('', 'rootKey')).toBe("rootKey");
+		expect(pipe.transform('', 'rootKey')).toBe('rootKey');
 	});
 
 	it('combine nested key and single path', () => {
-		expect(pipe.transform('path', 'key.nested')).toBe("path.key.nested");
+		expect(pipe.transform('path', 'key.nested')).toBe('path.key.nested');
 	});
 
 	it('combine single key and nested path', () => {
-		expect(pipe.transform('path.nested', 'key')).toBe("path.nested.key");
+		expect(pipe.transform('path.nested', 'key')).toBe('path.nested.key');
 	});
 
 	it('combine 2 single key paths', () => {
-		expect(pipe.transform('path', 'key')).toBe("path.key");
+		expect(pipe.transform('path', 'key')).toBe('path.key');
 	});
 
 	it('combine 2 nested paths', () => {
-		expect(pipe.transform('path.child', 'key.childKey')).toBe("path.child.key.childKey");
+		expect(pipe.transform('path.child', 'key.childKey')).toBe('path.child.key.childKey');
 	});
 });

@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 	name: 'combinePath',
 })
 export class CombinePathPipe implements PipeTransform {
-	transform(path: string, newKey : string): string {
+	transform(path: string, newKey: string): string {
 		if (path === '') {
 			return newKey;
 		}
