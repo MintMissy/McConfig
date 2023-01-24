@@ -1,3 +1,14 @@
+.menu {
+	@apply flex h-full items-center px-2;
+}
+
 .menu-item {
-	@apply flex w-full items-center gap-3 bg-dark-900 px-2 py-1 text-[14px] hover:bg-dark-800;
+	@apply flex w-full items-center gap-2 bg-dark-900 py-1 pl-2 pr-8 text-[14px] hover:bg-dark-800;
+
+	mat-icon {
+		margin-right: 0;
+		font-size: 1.25rem;
+		line-height: 1.25;
+		@apply text-dark-400;
+	}
 }

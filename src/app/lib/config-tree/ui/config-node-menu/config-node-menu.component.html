@@ -1,29 +1,63 @@
-<button [matMenuTriggerFor]="menu" class="flex h-full items-center px-2">
+<button [matMenuTriggerFor]="menu" class="menu">
 	<mat-icon class="block" [ngStyle]="{ fontSize: iconSize }">more_vert</mat-icon>
 </button>
+
 <mat-menu #menu="matMenu">
 	<button mat-menu-item (click)="clone.emit()">
-		<span class="menu-item">Clone</span>
+		<div class="menu-item">
+			<mat-icon>dynamic_feed</mat-icon>
+			<span>Clone</span>
+		</div>
 	</button>
 	<button mat-menu-item (click)="remove.emit()">
-		<span class="menu-item">Remove</span>
+		<div class="menu-item">
+			<mat-icon>delete</mat-icon>
+			<span>Remove</span>
+		</div>
 	</button>
 	<button *ngIf="hasAddSubKeyOption" mat-menu-item (click)="addSubKey.emit()">
-		<span class="menu-item">Add Sub-Key</span>
+		<div class="menu-item">
+			<mat-icon>add</mat-icon>
+			<span>Add Sub-Key</span>
+		</div>
 	</button>
+	<button mat-menu-item [matMenuTriggerFor]="convertMenu">
+		<div class="menu-item">
+			<mat-icon>edit</mat-icon>
+			<span>Convert Type</span>
+		</div>
+	</button>
+</mat-menu>
+
+<mat-menu #convertMenu class="menu">
 	<button mat-menu-item (click)="changeType.emit('number')">
-		<span class="menu-item">Convert to Number</span>
+		<div class="menu-item">
+			<mat-icon>123</mat-icon>
+			<span>Convert to Number</span>
+		</div>
 	</button>
 	<button mat-menu-item (click)="changeType.emit('boolean')">
-		<span class="menu-item">Convert to Boolean</span>
+		<div class="menu-item">
+			<mat-icon>toggle_on</mat-icon>
+			<span>Convert to Boolean</span>
+		</div>
 	</button>
 	<button mat-menu-item (click)="changeType.emit('string')">
-		<span class="menu-item">Convert to String</span>
+		<div class="menu-item">
+			<mat-icon>format_size</mat-icon>
+			<span>Convert to String</span>
+		</div>
 	</button>
 	<button mat-menu-item (click)="changeType.emit('array')">
-		<span class="menu-item">Convert to List</span>
+		<div class="menu-item">
+			<mat-icon>list</mat-icon>
+			<span>Convert to List</span>
+		</div>
 	</button>
 	<button mat-menu-item (click)="changeType.emit('object')">
-		<span class="menu-item">Convert to Object</span>
+		<div class="menu-item">
+			<mat-icon>data_object</mat-icon>
+			<span>Convert to Object</span>
+		</div>
 	</button>
 </mat-menu>
