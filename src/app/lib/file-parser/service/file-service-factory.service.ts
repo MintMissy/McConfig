@@ -5,7 +5,9 @@ import { ConfigFileService } from './config-file-service.class';
 import { JsonFileService } from './json-file.service';
 import { YamlFileService } from './yaml-file.service';
 
-@Injectable()
+@Injectable({
+	providedIn: 'root',
+})
 export class FileServiceFactory {
 	constructor(private injector: Injector) {}
 

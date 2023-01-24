@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { LastPathKeyPipe } from '../../pipe/path/last-path-key.pipe';
+import { LastPathKeyPipe } from 'src/app/lib/config-utility/pipe/path/last-path-key.pipe';
 
 @Component({
 	selector: 'app-config-node',

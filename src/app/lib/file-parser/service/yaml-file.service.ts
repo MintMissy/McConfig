@@ -5,9 +5,10 @@ import { ConfigFileService, DeserializedFile } from './config-file-service.class
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ConfigEntry } from '../model/savable-object.model';
-import { FileParserModule } from '../file-parser.module';
 
-@Injectable()
+@Injectable({
+	providedIn: 'root'
+})
 export class YamlFileService extends ConfigFileService {
 	deserialize(file: File): Observable<DeserializedFile> {
 		const observable = new Observable<DeserializedFile>((subscriber) => {

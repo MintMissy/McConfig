@@ -1,15 +1,8 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { YamlFileService } from './service/yaml-file.service';
-import { JsonFileService } from './service/json-file.service';
-
-
+import { NgModule } from '@angular/core';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ],
-  providers: [YamlFileService, JsonFileService]
+	declarations: [],
+	imports: [CommonModule],
 })
-export class FileParserModule { }
+export class FileParserModule {}

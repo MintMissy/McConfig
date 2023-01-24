@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { exampleConfig } from '../../../lib/config-editor/constants/example-config';
+import { exampleConfig } from '../../constants/example-config';
 
 import { EditorStore } from './editor.store';
 
