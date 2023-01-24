@@ -3,6 +3,9 @@
 
 $primary: mat.define-palette(mat.$indigo-palette, 700);
 $accent: mat.define-palette(mat.$amber-palette, 500);
+$typography: mat.define-typography-config(
+	$font-family: "Poppins",
+);
 
 $theme: mat.define-dark-theme(
 	(
@@ -11,7 +14,7 @@ $theme: mat.define-dark-theme(
 			accent: $accent,
 		),
 		// Only include `typography` and `density` in the default dark theme.
-		typography: mat.define-typography-config(),
+		typography: $typography,
 		density: 0,
 	)
 );
@@ -29,21 +32,18 @@ $theme: mat.define-dark-theme(
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+	html {
+		font-family: "Poppins";
+	}
+}
+
+body {
+	font-family: "Poppins", sans-serif;
+}
+
 .minecraft-font {
 	font-family: "MinecraftiaRegular";
 	font-style: normal;
 	font-weight: normal;
-}
-
-body {
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	p,
-	span,
-	button {
-		font-family: "Poppins", sans-serif;
-	}
 }

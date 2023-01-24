@@ -18,7 +18,7 @@
 	/>
 	<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
 		<mat-option *ngFor="let material of autocomplete$ | async" [value]="material">
-			<div class="flex w-full items-center gap-3 bg-dark-900 px-2 py-1 hover:bg-dark-800">
+			<div class="flex w-full items-center gap-3 bg-dark-900 px-2 py-1 hover:bg-semiblack-700">
 				<img
 					[src]="'assets/minecraft/materials/' + (material | lowercase) + '.png'"
 					alt=""
