@@ -61,3 +61,8 @@
 		width: 100%;
 	}
 }
+
+// Headers
+.text-gradient {
+	@apply bg-gradient-to-r from-primary-500 to-accent-400 bg-clip-text text-transparent;
+}
