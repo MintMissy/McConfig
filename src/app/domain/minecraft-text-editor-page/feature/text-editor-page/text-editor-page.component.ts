@@ -8,6 +8,8 @@ import { MinecraftColor } from '../../ui/color-list/color-list.component';
 	styleUrls: ['./text-editor-page.component.scss'],
 })
 export class TextEditorPageComponent {
+	private lastCursorPosition = 0;
+
 	@ViewChild('messageInput') messageInput!: ElementRef;
 
 	message = '';
@@ -17,25 +19,61 @@ export class TextEditorPageComponent {
 		HexColorCode: true,
 	};
 
+	onInput(newMessage: string, updateCursor = true) {
+		const textArea = this.messageInput.nativeElement as HTMLTextAreaElement;
+
+		if (updateCursor) {
+			this.lastCursorPosition = textArea.selectionStart;
+		}
+		this.message = newMessage;
+
+		setTimeout(() => {
+			this.setCursorPosition(this.lastCursorPosition);
+		}, 0);
+	}
+
+	onInputClick() {
+		const textArea = this.messageInput.nativeElement as HTMLTextAreaElement;
+		this.lastCursorPosition = textArea.selectionStart;
+	}
+
 	onParsingMethodToggle(toggledMethod: TypographyParsingMethod) {
 		this.parsingMethods[toggledMethod] = !this.parsingMethods[toggledMethod];
-		this.focusInput();
+		this.setCursorPosition(this.lastCursorPosition);
 	}
 
 	onFormatApply(formatCode: string) {
-		this.message += formatCode;
-		this.focusInput();
+		this.insertTextToMessage(formatCode, this.lastCursorPosition);
 	}
 
 	onColorSelect(color: MinecraftColor) {
-		this.message += color.code;
-		this.focusInput();
+		this.insertTextToMessage(color.code, this.lastCursorPosition);
 	}
 
-	private focusInput() {
+	private insertTextToMessage(newText: string, position = this.message.length) {
+		const messageLength = this.message.length;
+
+		if (position === messageLength) {
+			const message = this.message + newText
+			this.setCursorPosition(message.length);
+			this.onInput(message, false)
+			return;
+		}
+		const firstPart = this.message.slice(0, position);
+		const secondPart = this.message.slice(position, messageLength);
+		const message = firstPart + newText + secondPart;
+
+		this.setCursorPosition(firstPart.length + newText.length);
+		this.onInput(message, false);
+	}
+
+	private setCursorPosition(position: number) {
 		if (this.messageInput === null || this.messageInput === undefined) {
 			return;
 		}
-		this.messageInput.nativeElement.focus();
+		const textarea = this.messageInput.nativeElement as HTMLTextAreaElement;
+		this.lastCursorPosition = position
+		textarea.focus();
+		textarea.setSelectionRange(position, position);
 	}
 }

@@ -1,6 +1,6 @@
 <div class="mx-auto max-w-7xl pt-8 md:flex-col">
 	<div class="flex flex-col gap-6 lg:flex-row lg:gap-12">
-		<div class="flex flex-1 flex-col gap-4 shadow-sm">
+		<div class="flex w-full flex-col gap-4 shadow-sm lg:w-1/2">
 			<h1 class="text-3xl font-bold">Text Generator</h1>
 			<div>
 				<h3 class="mb-2 text-xl font-normal text-gray-300">Input</h3>
@@ -8,18 +8,25 @@
 					rows="10"
 					class="input p-2 shadow-md hover:bg-gray-700/50 focus:bg-gray-700/50"
 					#messageInput
-					[(ngModel)]="message"
+					[ngModel]="message"
+					(ngModelChange)="onInput($event)"
+					(click)="onInputClick()"
 				></textarea>
 			</div>
-			<div>
+			<div class="max-w-full">
 				<h3 class="mb-2 text-xl font-normal text-gray-300">Preview</h3>
-				<app-minecraft-text-preview [lore]="message | split:'\n'" class="flex min-h-[250px] items-stretch"></app-minecraft-text-preview>
+				<app-minecraft-text-preview
+					[lore]="message | split : '\n'"
+					class="flex min-h-[250px] items-stretch"
+				></app-minecraft-text-preview>
 			</div>
 		</div>
-		<app-text-editor-toolbar
-			(colorSelect)="onColorSelect($event)"
-			(toggleParsing)="onParsingMethodToggle($event)"
-			(formatApply)="onFormatApply($event)"
-		></app-text-editor-toolbar>
+		<div class="w-full lg:w-1/2">
+			<app-text-editor-toolbar
+				(colorSelect)="onColorSelect($event)"
+				(toggleParsing)="onParsingMethodToggle($event)"
+				(formatApply)="onFormatApply($event)"
+			></app-text-editor-toolbar>
+		</div>
 	</div>
 </div>
