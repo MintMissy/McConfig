@@ -1,5 +1,5 @@
-export type TypographyFormat = 'MiniMessage' | 'ColorCode' | 'HexColorCode';
+export type TypographyParsingMethod = 'MiniMessage' | 'ColorCode' | 'HexColorCode';
 
-export function getTypographyFormats(): TypographyFormat[] {
+export function getTypographyParsingMethods(): TypographyParsingMethod[] {
 	return ['ColorCode', 'HexColorCode', 'MiniMessage'];
 }

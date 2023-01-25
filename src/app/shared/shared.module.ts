@@ -11,6 +11,7 @@ import { BooleanInputComponent } from './ui/input/boolean-input/boolean-input.co
 import { FileInputComponent } from './ui/input/file-input/file-input.component';
 import { NumberInputComponent } from './ui/input/number-input/number-input.component';
 import { StringInputComponent } from './ui/input/string-input/string-input.component';
+import { SplitPipe } from './pipe/split.pipe';
 @NgModule({
 	declarations: [
 		// Components
@@ -25,6 +26,7 @@ import { StringInputComponent } from './ui/input/string-input/string-input.compo
 		IsStringifiedNumberPipe,
 		// Directives
 		AutoResizeInputDirective,
+  SplitPipe,
 	],
 	imports: [CommonModule, MaterialModule, FormsModule],
 	exports: [
@@ -41,6 +43,7 @@ import { StringInputComponent } from './ui/input/string-input/string-input.compo
 		IsStringifiedNumberPipe,
 		// Directives
 		AutoResizeInputDirective,
+  SplitPipe,
 	],
 })
 export class SharedModule {}

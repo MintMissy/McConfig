@@ -1,0 +1,13 @@
+<div class="mb-4 flex flex-wrap gap-x-4 gap-y-2">
+	<mat-chip-listbox *ngFor="let typographyFormat of TypographyFormats">
+		<mat-chip-option
+			color="accent"
+			[matTooltip]="'Toggle parsing ' + typographyFormat"
+			[selected]="true"
+			[value]="typographyFormat"
+			(selectionChange)="onFormatToggle($event, typographyFormat)"
+		>
+			{{ typographyFormat }}
+		</mat-chip-option>
+	</mat-chip-listbox>
+</div>

@@ -1,0 +1,9 @@
+<div class="flex flex-wrap gap-2">
+	<button
+		class="h-6 w-6 rounded-sm hover:scale-105"
+		*ngFor="let color of colors"
+		[ngStyle]="{ backgroundColor: color.color }"
+		[matTooltip]="'Add color: ' + color.code"
+		(click)="onColorSelect(color)"
+	></button>
+</div>

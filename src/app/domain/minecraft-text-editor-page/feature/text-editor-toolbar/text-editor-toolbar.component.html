@@ -1,0 +1,18 @@
+<div class="flex flex-1 flex-col gap-4 shadow-sm">
+	<h2 class="text-3xl font-bold">Toolbar</h2>
+	<div>
+		<h3 class="mb-2 text-xl font-normal text-gray-300">Color Codes</h3>
+		<app-color-list (colorSelect)="onColorSelect($event)"></app-color-list>
+	</div>
+	<!-- <div>
+				<h3 class="mb-2 text-xl font-normal text-gray-300">Custom Colors</h3>
+			</div> -->
+	<div>
+		<h3 class="mb-2 text-xl font-normal text-gray-300">Text Formatting</h3>
+		<app-typography-formatting-list (formatApply)="onFormatApply($event)"></app-typography-formatting-list>
+	</div>
+	<div>
+		<h3 class="mb-2 text-xl font-normal text-gray-300">Parsing Methods</h3>
+		<app-parsing-methods-list (toggleParsing)="onParsingMethodToggle($event)"></app-parsing-methods-list>
+	</div>
+</div>

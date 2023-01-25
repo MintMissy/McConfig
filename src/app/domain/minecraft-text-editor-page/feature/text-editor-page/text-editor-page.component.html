@@ -4,61 +4,22 @@
 			<h1 class="text-3xl font-bold">Text Generator</h1>
 			<div>
 				<h3 class="mb-2 text-xl font-normal text-gray-300">Input</h3>
-				<form action="">
-					<textarea rows="10" class="input p-2 shadow-md hover:bg-gray-700/50 focus:bg-gray-700/50"></textarea>
-				</form>
+				<textarea
+					rows="10"
+					class="input p-2 shadow-md hover:bg-gray-700/50 focus:bg-gray-700/50"
+					#messageInput
+					[(ngModel)]="message"
+				></textarea>
 			</div>
 			<div>
 				<h3 class="mb-2 text-xl font-normal text-gray-300">Preview</h3>
-				<app-minecraft-text-preview class="flex min-h-[250px] items-stretch"></app-minecraft-text-preview>
+				<app-minecraft-text-preview [lore]="message | split:'\n'" class="flex min-h-[250px] items-stretch"></app-minecraft-text-preview>
 			</div>
 		</div>
-		<div class="flex flex-1 flex-col gap-4 shadow-sm">
-			<h2 class="text-3xl font-bold">Toolbar</h2>
-			<div>
-				<h3 class="mb-2 text-xl font-normal text-gray-300">Color Codes</h3>
-				<div class="flex flex-wrap gap-2">
-					<button
-						class="h-6 w-6 rounded-sm hover:scale-105"
-						*ngFor="let color of ColorActions"
-						[ngStyle]="{ backgroundColor: color.color }"
-						(click)="onColorSelect(color.code)"
-						[matTooltip]="'Add color: ' + color.code"
-					></button>
-				</div>
-			</div>
-			<!-- <div>
-				<h3 class="mb-2 text-xl font-normal text-gray-300">Custom Colors</h3>
-			</div> -->
-			<div>
-				<h3 class="mb-2 text-xl font-normal text-gray-300">Text Formatting</h3>
-				<div class="flex flex-wrap gap-2">
-					<button class="hover:scale-105" matTooltip="Apply Bold: &l"><mat-icon>format_bold</mat-icon></button>
-					<button class="hover:scale-105" matTooltip="Apply Italic: &o"><mat-icon>format_italic</mat-icon></button>
-					<button class="hover:scale-105" matTooltip="Apply Underline: &n">
-						<mat-icon>format_underline</mat-icon>
-					</button>
-					<button class="hover:scale-105" matTooltip="Apply Strikethrough: &m">
-						<mat-icon>format_strikethrough</mat-icon>
-					</button>
-					<button class="hover:scale-105" matTooltip="Apply Obfuscated: &k"><mat-icon>auto_awesome</mat-icon></button>
-					<button class="hover:scale-105" matTooltip="Apply Reset: &r"><mat-icon>replay</mat-icon></button>
-				</div>
-			</div>
-			<div>
-				<h3 class="mb-2 text-xl font-normal text-gray-300">Parsing Methods</h3>
-				<div class="mb-4 flex flex-wrap gap-x-4 gap-y-2">
-					<mat-chip-listbox *ngFor="let typographyFormat of TypographyFormats">
-						<mat-chip-option
-							[matTooltip]="'Toggle parsing ' + typographyFormat"
-							(selectionChange)="onTypographyFormatToggle($event)"
-							color="accent"
-						>
-							{{ typographyFormat }}
-						</mat-chip-option>
-					</mat-chip-listbox>
-				</div>
-			</div>
-		</div>
+		<app-text-editor-toolbar
+			(colorSelect)="onColorSelect($event)"
+			(toggleParsing)="onParsingMethodToggle($event)"
+			(formatApply)="onFormatApply($event)"
+		></app-text-editor-toolbar>
 	</div>
 </div>
