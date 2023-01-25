@@ -21,7 +21,7 @@ $theme: mat.define-dark-theme(
 
 // Apply the dark theme by default
 @include mat.core-theme($theme);
-@include mat.button-theme($theme);
+@include mat.all-component-themes($theme);
 
 @import "bootstrap-icons/font/bootstrap-icons.css";
 @import "reset";

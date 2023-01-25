@@ -8,11 +8,11 @@
 }
 
 .mat-mdc-option {
-	padding: 0 !important;
-	margin: 0 !important;
+	width: 100%;
 	height: auto !important;
 	min-height: unset !important;
-	width: 100%;
+	margin: 0 !important;
+	padding: 0 !important;
 }
 
 .mdc-list-item--selected .mdc-list-item__primary-text,
@@ -26,9 +26,13 @@
 }
 
 .mat-mdc-menu-item {
-	padding: 0 !important;
-	margin: 0 !important;
+	width: 100%;
 	height: auto !important;
 	min-height: unset !important;
-	width: 100%;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) {
+	--mdc-chip-elevated-container-color: theme("colors.dark.800");
 }
